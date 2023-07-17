@@ -1,0 +1,7 @@
+#board {
+    background-color: rgb(135, 201, 202);
+    width: auto 1000px;
+    height: 500px;
+    margin-top: 150px;
+    position: relative;
+}
