@@ -1,7 +1,15 @@
 #board {
     background-color: rgb(135, 201, 202);
-    width: auto 1000px;
+    width: 1000px;
     height: 500px;
+    margin: auto;
     margin-top: 150px;
     position: relative;
+}
+
+.mosquito {
+    background-color: pink;
+    width: 100px;
+    height: 100px;
+    position: absolute;
 }
