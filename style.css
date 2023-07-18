@@ -13,3 +13,10 @@
     height: 100px;
     position: absolute;
 }
+
+.swatter {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}

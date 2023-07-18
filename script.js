@@ -1,17 +1,31 @@
 import { Player } from "./player.js";
+import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
+let swatter = new Enemy (900, 200, board);
 mosquito.createMosquito();
-let moveId;
+swatter.createFlySwatter();
+let playerMoveId;
+let enemyMoveId;
+
 
 function movePlayer(){
-     moveId = setInterval(playerMove, 50)
+     playerMoveId = setInterval(playerMove, 50)
 
 }
 
 function playerMove(){
     mosquito.move()
+}
+
+function moveEnemy(){
+    enemyMoveId = setInterval(enemyMove, 50)
+
+}
+
+function enemyMove(){
+    swatter.move()
 }
 
 window.addEventListener('keydown', function(e){
@@ -29,7 +43,7 @@ window.addEventListener('keydown', function(e){
             mosquito.directionY = 1;
             break;
     }
-})
+});
 
 window.addEventListener('keyup', function(e){
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
@@ -41,6 +55,7 @@ window.addEventListener('keyup', function(e){
 })
 
 movePlayer();
+moveEnemy();
 
 
 
