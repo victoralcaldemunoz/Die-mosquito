@@ -11,8 +11,7 @@ let enemyMoveId;
 function start(){
     mosquito.createMosquito();
     playerMoveId = setInterval(playerMove, 50);
-    enemyMoveId = setInterval(createEnemy, 3000)
-    
+    enemyMoveId = setInterval(createEnemy, 2000)
 }
 
 function playerMove() {
@@ -23,7 +22,7 @@ function createEnemy(){
     let randomY = Math.floor(Math.random() * 5) * 100
     let enemy = new Enemy(950, randomY, board);
     enemy.insertFlySwatter()
-    enemy.move()
+    setInterval(enemy.move)
 }
 
 
