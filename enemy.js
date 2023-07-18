@@ -8,7 +8,7 @@ function Enemy (x, y,parent ){
     this.sprite = document.createElement('div')
 
 
-    this.createFlySwatter = function(){
+    this.insertFlySwatter = function(){ 
         this.sprite.classList.add('swatter')
         this.sprite.style.left = this.x + 'px'
         this.sprite.style.top = this.y + 'px'

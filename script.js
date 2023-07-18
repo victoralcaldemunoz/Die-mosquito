@@ -4,27 +4,28 @@ import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
-let swatter = new Enemy(0, 200, board);
-mosquito.createMosquito();
-swatter.createFlySwatter();
+
 let playerMoveId;
 let enemyMoveId;
 
-function movePlayer() {
+function start(){
+    mosquito.createMosquito();
     playerMoveId = setInterval(playerMove, 50);
+    enemyMoveId = setInterval(createEnemy, 3000)
+    
 }
 
 function playerMove() {
     mosquito.move();
 }
 
-function moveEnemy() {
-    enemyMoveId = setInterval(enemyMove, 50);
+function createEnemy(){
+    let randomY = Math.floor(Math.random() * 5) * 100
+    let enemy = new Enemy(950, randomY, board);
+    enemy.insertFlySwatter()
+    enemy.move()
 }
 
-function enemyMove() {
-    swatter.move();
-}
 
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
@@ -52,8 +53,9 @@ window.addEventListener('keyup', function(e) {
     }
 });
 
-movePlayer();
-moveEnemy();
+
+
+start()
 
 
 
