@@ -1,18 +1,48 @@
+import { Player } from "./player.js";
+
 const board = document.getElementById('board');
-const player = new Mosquito(500, 250)
+let mosquito = new Player(0, 200, board);
+mosquito.createMosquito();
+let moveId;
 
-function Mosquito (x, y){
-    this.x = x;
-    this.y = y;
+function movePlayer(){
+     moveId = setInterval(playerMove, 50)
 
-    this.sprite = document.createElement('div')
-
-    this.createMosquito = function(){
-        this.sprite.classList.add('mosquito')
-        this.sprite.style.left = this.x + 'px'
-        this.sprite.style.top = this.y + 'px'
-        board.appendChild(this.sprite)
-    }
 }
 
-player.createMosquito()
+function playerMove(){
+    mosquito.move()
+}
+
+window.addEventListener('keydown', function(e){
+    switch (e.key){
+        case 'ArrowRight': 
+            mosquito.directionX = 1;
+            break;
+        case 'ArrowLeft':
+            mosquito.directionX = -1;
+            break;
+        case 'ArrowUp':
+            mosquito.directionY = -1;
+            break;
+        case 'ArrowDown':
+            mosquito.directionY = 1;
+            break;
+    }
+})
+
+window.addEventListener('keyup', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        mosquito.directionX = 0;
+        }
+    if ( e.key === 'ArrowUp' || e.key === 'ArrowDown'){
+        mosquito.directionY = 0;
+    }
+})
+
+movePlayer();
+
+
+
+
+
