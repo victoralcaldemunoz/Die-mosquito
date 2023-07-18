@@ -9,6 +9,7 @@ mosquito.createMosquito();
 swatter.createFlySwatter();
 let playerMoveId;
 let enemyMoveId;
+let collisionId;
 
 function movePlayer() {
     playerMoveId = setInterval(playerMove, 50);
@@ -24,6 +25,14 @@ function moveEnemy() {
 
 function enemyMove() {
     swatter.move();
+}
+
+function collisionInterval(){
+    collisionId = setInterval(collision, 50)
+}
+
+function collision() {
+    swatter.checkCollision()
 }
 
 window.addEventListener('keydown', function(e) {
@@ -54,6 +63,9 @@ window.addEventListener('keyup', function(e) {
 
 movePlayer();
 moveEnemy();
+collisionInterval();
+
+export { mosquito }
 
 
 

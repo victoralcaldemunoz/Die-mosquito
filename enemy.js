@@ -1,7 +1,11 @@
+import { mosquito } from "./script.js";
+
 function Enemy (x, y,parent ){
     let self = this;
     this.x = x
     this.y = y
+    this.width = 50
+    this.height = 50
     this.directionX = 0;
     this.directionY = 0;
     this.speed = 6;
@@ -31,6 +35,15 @@ function Enemy (x, y,parent ){
             self.x = 900;
         }
     };
+    this.checkCollision = function(){
+        if ( this.y + this.height >= mosquito.y &&
+            this.y <= mosquito.y + mosquito.height &&
+            this.x + this.width >= mosquito.x &&
+            this.x <= mosquito.x + mosquito.width    
+        ){  
+            console.log('collision')  
+        }
+    }
     
     }
 export { Enemy }
