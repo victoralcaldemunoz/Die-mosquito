@@ -1,10 +1,22 @@
 #board {
-    background-color: rgb(135, 201, 202);
+    background-image: url("vecteezy_river-forest-game-background_7357538.jpg");
+    background-size: cover;
+    background-repeat: space
     width: 1000px;
     height: 500px;
     margin: auto;
     margin-top: 150px;
     position: relative;
+    animation: moveBackground 5s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
 }
 
 .mosquito {
@@ -20,3 +32,4 @@
     height: 50px;
     position: absolute;
 }
+
