@@ -4,7 +4,7 @@ import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
-let swatter = new Enemy(0, 200, board);
+let swatter = new Enemy(0, 200, board, mosquito);
 mosquito.createMosquito();
 swatter.createFlySwatter();
 let playerMoveId;

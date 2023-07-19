@@ -2,8 +2,8 @@ function Player (x, y, parent){
     let self = this;
     this.x = x;
     this.y = y;
-    this.width = 100;
-    this.heigth = 100;
+    this.width = 50;
+    this.height = 50;
     this.directionX = 0;
     this.directionY = 0;
     this.speed = 10;
