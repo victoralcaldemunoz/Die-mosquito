@@ -1,12 +1,13 @@
-
-
 function Player (x, y, parent){
     let self = this;
     this.x = x;
     this.y = y;
+    this.width = 50;
+    this.height = 50;
     this.directionX = 0;
     this.directionY = 0;
     this.speed = 10;
+    this.death = false;
     this.sprite = document.createElement('div');
  
     this.createMosquito = function(){
@@ -22,11 +23,11 @@ function Player (x, y, parent){
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         }
-        if (newY >= 0 && newY <= 400){
+        if (newY >= 0 && newY <= 450){
             self.y = newY
             self.sprite.style.top = self.y + 'px'
         }
-    }
-}  
+    }  
+}
 
 export { Player }
