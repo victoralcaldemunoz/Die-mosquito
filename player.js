@@ -1,4 +1,5 @@
 function Player (x, y, parent){
+    console.log("Creating player object.");
     let self = this;
     this.x = x;
     this.y = y;
@@ -11,6 +12,7 @@ function Player (x, y, parent){
     this.sprite = document.createElement('div');
  
     this.createMosquito = function(){
+        console.log("Creating mosquito object.");
         this.sprite.classList.add('mosquito')
         this.sprite.style.left = this.x + 'px'
         this.sprite.style.top = this.y + 'px'

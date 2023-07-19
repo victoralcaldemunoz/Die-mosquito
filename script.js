@@ -1,10 +1,11 @@
-
 import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
+console.log("Creating mosquito object.");
 let mosquito = new Player(0, 200, board);
-
+let btnIniciarJuego = document.getElementById("startButton")
+const seccionJuego = document.getElementById('seccion-juego')
 
 let flySwatters = [];
 let playerTimeId;
@@ -13,6 +14,7 @@ let randomY;
 let swatter;
 
 function start() {
+    console.log("Start function is running.")
     mosquito.createMosquito()
     playerTimeId = setInterval(mosquitoMovement, 50)
     enemyTimeId = setInterval(createEnemy, 3000)
@@ -28,6 +30,7 @@ function mosquitoMovement() {
 }
 
 function createEnemy () {
+    console.log("Creating enemy object.");
     randomY = Math.floor(Math.random() * 10) * 50
     swatter = new Enemy(950, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
@@ -60,10 +63,9 @@ window.addEventListener('keyup', function(e) {
     }
 });
 
-start()
-
-
-
-
-
+btnIniciarJuego.addEventListener('click', function(){
+    start();
+  document.getElementById('intro').style.display = 'none';
+  seccionJuego.style.display = 'block';
+})
 
