@@ -62,7 +62,11 @@ window.addEventListener('keyup', function(e) {
 });
 
 btnIniciarJuego.addEventListener('click', function(){
-    seccionJuego.style.display = 'block'
+     // Oculta la sección de introducción
+  document.getElementById('intro').style.display = 'none';
+  
+  // Muestra la sección del juego
+  seccionJuego.style.display = 'block';
 })
 
 
