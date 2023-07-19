@@ -4,8 +4,7 @@ import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
-let btnIniciarJuego = document.getElementById("startButton")
-const seccionJuego = document.getElementById('seccion-juego')
+
 
 let flySwatters = [];
 let playerTimeId;
@@ -60,12 +59,6 @@ window.addEventListener('keyup', function(e) {
         mosquito.directionY = 0;
     }
 });
-
-btnIniciarJuego.addEventListener('click', function(){
-    seccionJuego.style.display = 'block'
-})
-
-
 
 start()
 
