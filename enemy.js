@@ -17,18 +17,18 @@ function Enemy (x, y,parent ){
     this.move = function(){
         let newX = self.x + self.speed * self.directionX
         let newY = self.y + self.speed * self.directionY
-        if (newX >= 0 && newX <= 900){
+        if (newX >= 0 && newX <= 1450){
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         }
-            if (newY >= 0 && newY <= 400){
+            if (newY >= 0 && newY <= 1450){
                 self.y = newY
                 self.sprite.style.top = self.y + 'px'
         }
-            if (self.x >= 900) {
+            if (self.x >= 400) {
             self.directionX = -1; 
         } else if (newX <= 0){
-            self.x = 900;
+            self.x = 1450;
         }
     };
     

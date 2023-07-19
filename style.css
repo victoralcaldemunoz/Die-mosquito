@@ -1,29 +1,22 @@
 #board {
     background-image: url("vecteezy_river-forest-game-background_7357538.jpg");
-    background-size: cover;
-    background-repeat: space
-    width: 1000px;
+    background-size: 100% 100%;
+    width: 1500px;
     height: 500px;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 350px;
     position: relative;
-    animation: moveBackground 5s linear infinite;
+    animation: infinite 5s;
+    
 }
-
-@keyframes moveBackground {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 0%;
-    }
-}
+ 
 
 .mosquito {
     background-color: pink;
     width: 100px;
     height: 100px;
     position: absolute;
+    
 }
 
 .swatter {
@@ -31,5 +24,6 @@
     width: 50px;
     height: 50px;
     position: absolute;
+    
 }
 
