@@ -4,36 +4,35 @@ import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
-let swatter = new Enemy(0, 200, board, mosquito);
-mosquito.createMosquito();
-swatter.createFlySwatter();
-let playerMoveId;
-let enemyMoveId;
-let collisionId;
 
-function movePlayer() {
-    playerMoveId = setInterval(playerMove, 50);
+
+let flySwatters = [];
+let playerTimeId;
+let enemyTimeId;
+let randomY;
+let swatter;
+
+function start() {
+    mosquito.createMosquito()
+    playerTimeId = setInterval(mosquitoMovement, 50)
+    enemyTimeId = setInterval(createEnemy, 3000)
 }
 
-function playerMove() {
+function mosquitoMovement() {
     mosquito.move();
+    if (mosquito.death === true){
+        alert('Mosquito is dead')
+        clearInterval(playerTimeId)
+        clearInterval(enemyTimeId)
+    }
 }
 
-function moveEnemy() {
-    enemyMoveId = setInterval(enemyMove, 50);
-}
-
-function enemyMove() {
-    swatter.move();
-}
-
-function collisionInterval(){
-    collisionId = setInterval(collision, 50)
-}
-
-function collision() {
-    swatter.checkCollision()
-}
+function createEnemy () {
+    randomY = Math.floor(Math.random() * 10) * 50
+    swatter = new Enemy(950, randomY, board, mosquito, flySwatters)
+    flySwatters.push(swatter) 
+    swatter.createFlySwatter() 
+  }
 
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
@@ -61,11 +60,8 @@ window.addEventListener('keyup', function(e) {
     }
 });
 
-movePlayer();
-moveEnemy();
-collisionInterval();
+start()
 
-export { mosquito }
 
 
 

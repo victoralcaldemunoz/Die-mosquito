@@ -23,7 +23,7 @@ function Player (x, y, parent){
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         }
-        if (newY >= 0 && newY <= 400){
+        if (newY >= 0 && newY <= 450){
             self.y = newY
             self.sprite.style.top = self.y + 'px'
         }
