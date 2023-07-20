@@ -8,7 +8,7 @@ body, html {
 /* CSS PARA EL MAIN MENU */
 
 #intro{
-    background-image:url("44780.jpg"); 
+    background-image:url("./multimedia/44780.jpg"); 
     background-size: cover  ;
     height: 100vh;
     position: relative;
@@ -63,7 +63,7 @@ body, html {
       }
   }
 
-  .firefly:nth-child(1) {
+.firefly:nth-child(1) {
     top: 50px;
     left: 100px;
 }
@@ -81,8 +81,6 @@ body, html {
   top: 900px;
   left: 1100px;
 }
-
-
 
 #startButton{
     font-weight: bold;
@@ -139,12 +137,12 @@ body, html {
     cursor: pointer;
   }
    
-  #audioButton:hover{
+#audioButton:hover{
     background-color: #f20b44;
   }
 
 #board {
-    background-image: url("vecteezy_river-forest-game-background_7357538.jpg");
+    background-image: url("./multimedia/vecteezy_river-forest-game-background_7357538.jpg");
     background-size: 100% 100%;
     width: 1500px;
     height: 500px;
@@ -156,7 +154,7 @@ body, html {
 }
 
 .mosquito {
-  background-image: url("./mosquitillo.gif");
+  background-image: url("./multimedia/mosquitillo.gif");
   width: 50px;
   height: 50px;
   position: absolute;
@@ -167,7 +165,7 @@ body, html {
 }
 
 .swatter {
-    background-image: url("./istockphoto-1318175760-612x612.png");
+    background-image: url("./multimedia/istockphoto-1318175760-612x612.png");
     background-size: 100% 100%;
     width: 100px;
     height: 100px;

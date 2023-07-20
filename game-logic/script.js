@@ -5,6 +5,8 @@ import { Enemy } from "./enemy.js";
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton")
 const seccionJuego = document.getElementById('seccion-juego')
+let btnSound = document.getElementById('audioButton')
+let buzz = new Audio('mosquito.mp3')
 
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
@@ -71,5 +73,13 @@ btnIniciarJuego.addEventListener('click', function(){
     start();
     document.getElementById('intro').style.display = 'none';
     seccionJuego.style.display = 'block';
+})
+
+btnSound.addEventListener('click', function(){
+    if (btnSound.setAttribute('autoplay')) {
+    btnSound.setAttribute('muted')
+    } else {
+    btnSound.setAttribute('autoplay')
+    }
 })
 
