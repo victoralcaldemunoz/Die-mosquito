@@ -151,8 +151,17 @@ body, html {
     margin: auto;
     margin-top: 350px;
     position: relative;
-    animation: infinite 5s;
+    animation: backgroundScroll 5s linear infinite;;
     
+}
+@keyframes backgroundScroll {
+  
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .mosquito {
