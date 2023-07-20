@@ -1,15 +1,18 @@
 import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
+import { Princess } from "./princess.js";
 
 const board = document.getElementById('board');
-console.log("Creating mosquito object.");
-let mosquito = new Player(0, 200, board);
 let btnIniciarJuego = document.getElementById("startButton")
 const seccionJuego = document.getElementById('seccion-juego')
 
+let mosquito = new Player(0, 200, board);
+/* let guayarmina = new Princess(1000, 400, board);
+let princessId; */
 let flySwatters = [];
 let playerTimeId;
 let enemyTimeId;
+
 let randomY;
 let swatter;
 
@@ -18,6 +21,7 @@ function start() {
     mosquito.createMosquito()
     playerTimeId = setInterval(mosquitoMovement, 50)
     enemyTimeId = setInterval(createEnemy, 3000)
+    guayarmina.createPrincess();
 }
 
 function mosquitoMovement() {
