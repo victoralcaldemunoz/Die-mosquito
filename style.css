@@ -5,6 +5,7 @@ body, html {
     overflow: hidden;
   }
 
+/* CSS PARA EL MAIN MENU */
 
 #intro{
     background-image:url("44780.jpg"); 
@@ -112,7 +113,7 @@ body, html {
     animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
   }
   
-  @keyframes drop {
+@keyframes drop {
     0%, 100% {
         text-shadow: 0 5px 10px rgba(255, 0, 0, 0.7), 0 10px 20px rgba(255, 0, 0, 0.5);
       }
@@ -170,10 +171,19 @@ body, html {
 }
 
 .swatter {
-    background-color: red;
-    width: 50px;
-    height: 50px;
+    background-image: url("./istockphoto-1318175760-612x612.png");
+    background-size: 100% 100%;
+    width: 80px;
+    height: 80px;
     position: absolute;
     
+}
+
+.princess {
+    background-color: rgb(6, 153, 231);
+    background-size: 100% 100%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
 }
 
