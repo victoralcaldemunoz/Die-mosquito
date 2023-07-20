@@ -62,6 +62,7 @@ window.addEventListener('keyup', function(e) {
 });
 
 btnIniciarJuego.addEventListener('click', function(){
+    start()
      // Oculta la sección de introducción
   document.getElementById('intro').style.display = 'none';
   
@@ -71,7 +72,7 @@ btnIniciarJuego.addEventListener('click', function(){
 
 
 
-start()
+
 
 
 
