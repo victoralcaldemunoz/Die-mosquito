@@ -2,11 +2,16 @@ import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
 // import { Princess } from "./princess.js";
 
+
+// TABLERO
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton")
 const seccionJuego = document.getElementById('seccion-juego')
+
+// SONIDO
 let btnSound = document.getElementById('audioButton')
-let buzz = new Audio('mosquito.mp3')
+let buzz = new Audio('multimedia/mosquito.mp3')
+let isPlaying = false;
 
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
@@ -75,11 +80,14 @@ btnIniciarJuego.addEventListener('click', function(){
     seccionJuego.style.display = 'block';
 })
 
-btnSound.addEventListener('click', function(){
-    if (btnSound.setAttribute('autoplay')) {
-    btnSound.setAttribute('muted')
-    } else {
-    btnSound.setAttribute('autoplay')
-    }
-})
+buzz.addEventListener('canplaythrough', function(e){
+    btnSound.addEventListener('click', function(){
+        if (isPlaying) {
+            buzz.pause()
+        }else {
+            buzz.play()
+        }
+        isPlaying = !isPlaying;
+    });
+});
 
