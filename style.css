@@ -156,31 +156,21 @@ body, html {
 }
 
 .mosquito {
-  background-image: url("mosquitillo.gif");
+  background-image: url("./mosquitillo.gif");
   width: 50px;
   height: 50px;
   position: absolute;
   background-size: cover;
   background-color: #d8dfd600;
   color: rgb(159, 10, 233);
-  opacity: 1;
-
-
-
-
-    background-image: url("./png-clipart-mosquito-cartoon-animation-mosquito-child-painted-thumbnail\ \(1\).png");
-    background-size: 100% 100%;
-    width: 50px;
-    height: 50px;
-    position: absolute;
     
 }
 
 .swatter {
     background-image: url("./istockphoto-1318175760-612x612.png");
     background-size: 100% 100%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     
 }

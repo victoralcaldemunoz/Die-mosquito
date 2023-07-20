@@ -35,8 +35,8 @@ function mosquitoMovement() {
 
 function createEnemy () {
     console.log("Creating enemy object.");
-    randomY = Math.floor(Math.random() * 10) * 50
-    swatter = new Enemy(950, randomY, board, mosquito, flySwatters)
+    randomY = Math.floor(Math.random() * 5) * 100
+    swatter = new Enemy(1400, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
     swatter.createFlySwatter() 
   }
