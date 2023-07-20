@@ -65,7 +65,7 @@ window.addEventListener('keyup', function(e) {
 
 btnIniciarJuego.addEventListener('click', function(){
     start();
-  document.getElementById('intro').style.display = 'none';
-  seccionJuego.style.display = 'block';
+    document.getElementById('intro').style.display = 'none';
+    seccionJuego.style.display = 'block';
 })
 
