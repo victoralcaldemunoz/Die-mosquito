@@ -1,6 +1,6 @@
 import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
-import { Princess } from "./princess.js";
+// import { Princess } from "./princess.js";
 
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton")
@@ -21,7 +21,7 @@ function start() {
     mosquito.createMosquito()
     playerTimeId = setInterval(mosquitoMovement, 50)
     enemyTimeId = setInterval(createEnemy, 3000)
-    guayarmina.createPrincess();
+    // guayarmina.createPrincess();
 }
 
 function mosquitoMovement() {
@@ -69,7 +69,7 @@ window.addEventListener('keyup', function(e) {
 
 btnIniciarJuego.addEventListener('click', function(){
     start();
-  document.getElementById('intro').style.display = 'none';
-  seccionJuego.style.display = 'block';
+    document.getElementById('intro').style.display = 'none';
+    seccionJuego.style.display = 'block';
 })
 
