@@ -10,30 +10,106 @@ body, html {
 #intro{
     background-image:url("44780.jpg"); 
     background-size: cover  ;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+   
+    
     
     }
 
-#startButton{
-    font-weight: 4000;
-    font-family: Arial, sans-serif;
-    font-size: 50px;
-    color: rgb(183, 0, 255);
-    border-radius: 10px;
-    align-items: center;
-    margin-left: 47vw;
-    margin-top: 25%;
+    .firefly {
+      width: 7px;
+      height: 7px;
+      background-color: rgba(150, 224, 241, 0.5); 
+      border-radius: 50%;
+      position: absolute;
+      animation: moveFirefly 3s infinite;
+  }
+  
+  @keyframes moveFirefly {
+      0%, 100% {
+          transform: translateY(10) translateX(30);
+      }
+      25% {
+        transform: translateY(30px) translateX(50px);
+    }
+      40% {
+          transform: translateY(40px) translateX(60px);
+      }
+      60% {
+        transform: translateY(60px) translateX(90px);
+      }
+      80% {
+        transform: translateY(120px) translateX(160px);
+      }
+      100%{
+        transform: translateY(190px) translateX(200px) ;
+      }
+      60%{
+        transform: translateY(170px) translateX(146px);
+      }
+      40%{
+        transform: translateY(120px) translateX(110px);
+      }
+      20%{
+        transform: translateY(78px) translateX(80px);
+      }
+      10%{
+        transform: translateY(30px) translateX(30px);
+      }
+      0%{
+        transform: translateY(6px) translateX(20px);
+      }
   }
 
+  .firefly:nth-child(1) {
+    top: 50px;
+    left: 100px;
+}
 
+.firefly:nth-child(2) {
+    top: 150px;
+    left: 1400px;
+}
+
+.firefly:nth-child(3) {
+    top: 500px;
+    left: 300px;
+}
+.firefly:nth-child(4) {
+  top: 900px;
+  left: 1100px;
+}
+
+
+
+#startButton{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    background-color: #47e91e;
+    color: rgb(241, 233, 245);
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+    margin-left: 45vw;
+    margin-top: 25vh;
+  }
+  #startButton:hover {
+    background-color: #ff4081; 
+  }
   h2 {
+    font-weight: bold;
+    align-items: center;
     font-family: 'Nosifer', cursive; 
-    font-size: 60px;
+    font-size: 90px;
     color: #fff;
-    margin-bottom: 20px;
-    margin-left: 800px;
+    margin-top: 10vh;
+    margin-left: 27vw;
     animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
   }
   
@@ -46,18 +122,26 @@ body, html {
       }
     }
 
-#audioButton {
-    width: 50px;
-    height: 50px;
-    border-radius: 90%;
-    background-color: #f20b44; /* Green */
-    color: white;
-    margin-left: -2400px;
-    margin-top: -1400px;
-  }
 
-  /* CSS PARA LA PANTALLA DE JUEGO*/
+  #audioButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 60%;
+    background-color: #0bf239; 
+    color: white;
+    top: 3vh; 
+    left: 1vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    cursor: pointer;
+  }
    
+  #audioButton:hover{
+    background-color: #f20b44;
+  }
 
 #board {
     background-image: url("vecteezy_river-forest-game-background_7357538.jpg");
@@ -72,6 +156,18 @@ body, html {
 }
 
 .mosquito {
+  background-image: url("mosquitillo.gif");
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-size: cover;
+  background-color: #d8dfd600;
+  color: rgb(159, 10, 233);
+  opacity: 1;
+
+
+
+
     background-image: url("./png-clipart-mosquito-cartoon-animation-mosquito-child-painted-thumbnail\ \(1\).png");
     background-size: 100% 100%;
     width: 50px;
