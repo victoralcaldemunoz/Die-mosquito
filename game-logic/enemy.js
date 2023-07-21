@@ -8,7 +8,6 @@ function Enemy (x, y, parent, mosquito, enemies){
   this.speed = 8;
   this.sprite = document.createElement('div')
 
-
   this.createFlySwatter = function(){
       this.sprite.classList.add('swatter')
       this.sprite.style.left = this.x + 'px'

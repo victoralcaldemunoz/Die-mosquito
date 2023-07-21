@@ -5,8 +5,39 @@ import { Enemy } from "./enemy.js";
 
 // TABLERO
 const board = document.getElementById('board');
-let btnIniciarJuego = document.getElementById("startButton")
-const seccionJuego = document.getElementById('seccion-juego')
+let btnIniciarJuego = document.getElementById("startButton");
+const seccionJuego = document.getElementById('seccion-juego');
+let gameStarted = true;
+
+// GAME OVER
+function showGameoverScreen(){
+    let gameoverSection = document.createElement('section');
+    gameoverSection.setAttribute('id', 'gameover');
+
+    let divContainerGameover = document.createElement('div')
+    divContainerGameover.classList.add('gameover-button-div');
+
+    let restartButton = document.createElement('button')
+    restartButton.setAttribute('id', 'restart')
+    restartButton.textContent = 'Restart'
+
+    restartButton.addEventListener('click', function(){
+        start()
+        gameoverSection.style.display = 'none'
+        seccionJuego.style.display = 'block'
+    })
+
+    divContainerGameover.appendChild(restartButton);
+
+    gameoverSection.appendChild(divContainerGameover);
+
+    document.body.appendChild(gameoverSection);
+    
+    gameoverSection.style.display = 'block';
+    seccionJuego.style.display = 'none';
+
+    gameStarted = false;
+}
 
 // SONIDO
 let btnSound = document.getElementById('audioButton')
@@ -33,10 +64,11 @@ function start() {
 
 function mosquitoMovement() {
     mosquito.move();
-    if (mosquito.death === true){
+    if (mosquito.death === gameStarted){
         alert('Mosquito is dead')
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
+        showGameoverScreen();
     }
 }
 
@@ -65,6 +97,8 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+// EVENTO PARA MOVER A MOSQUITO
+
 window.addEventListener('keyup', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
         mosquito.directionX = 0;
@@ -74,12 +108,15 @@ window.addEventListener('keyup', function(e) {
     }
 });
 
+// EVENTO PARA INICIAR EL BOARD DEL JUEGO
 btnIniciarJuego.addEventListener('click', function(){
     start();
     document.getElementById('intro').style.display = 'none';
     seccionJuego.style.display = 'block';
-})
+});
 
+
+// EVENTO PARA PONER O QUITAR EL SONIDO
 buzz.addEventListener('canplaythrough', function(e){
     btnSound.addEventListener('click', function(){
         if (isPlaying) {
