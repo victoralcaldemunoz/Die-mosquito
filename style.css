@@ -7,18 +7,15 @@ body, html {
 
 /* CSS PARA EL MAIN MENU */
 
-#intro{
+/*#intro{
     background-image:url("./multimedia/44780.jpg"); 
     background-size: cover  ;
     height: 100vh;
     position: relative;
     overflow: hidden;
-   
-    
-    
-    }
+   }
 
-    .firefly {
+   .firefly {
       width: 7px;
       height: 7px;
       background-color: rgba(150, 224, 241, 0.5); 
@@ -142,7 +139,7 @@ body, html {
   }
 /* CSS para la PANTALLA DE JUEGO */
 
-#board {
+/*#board {
     background-image: url("./multimedia/Forest.jpg");
     background-size:contain;
     width: 1500px;
@@ -159,7 +156,7 @@ body, html {
     background-position: 0px 0; 
   }
   100% {
-    background-position: -2000px 0; 
+    background-position: -1500px 0; 
   }
 }
 
@@ -190,19 +187,47 @@ body, html {
     height: 100px;
     position: absolute;
 }
-
+*/
 
 /*CSS para pantalla de GAME OVER */
 
-#gameover{
+#gameover {
   background-image: url("./multimedia/dead.jpg");
-  background-size: cover;
-  position: relative;
-  
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.title{
+.title {
+  font-weight: bold;
+  align-items: center;
   font-family: "Latin Modern Roman";
   font-style: oblique;
-  color:antiquewhite;
+  font-size: 90px;
+  color: rgb(151, 140, 125);
+  margin-left: 0vw;
+  margin-top: -35vh;
+  position: relative;
+}
+
+#restartButton {
+  font-weight: bold;
+  align-items: center;
+  font-family: 'Nosifer', cursive; 
+  font-size: 90px;
+  color: rgb(249, 203, 203);
+  margin-top: 10vh;
+  position: absolute; 
+  background-color: transparent;
+  border: none;
 }
 
