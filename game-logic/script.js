@@ -2,9 +2,16 @@ import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
 // import { Princess } from "./princess.js";
 
+
+// TABLERO
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton")
 const seccionJuego = document.getElementById('seccion-juego')
+
+// SONIDO
+let btnSound = document.getElementById('audioButton')
+let buzz = new Audio('multimedia/mosquito.mp3')
+let isPlaying = false;
 
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
@@ -35,8 +42,8 @@ function mosquitoMovement() {
 
 function createEnemy () {
     console.log("Creating enemy object.");
-    randomY = Math.floor(Math.random() * 10) * 50
-    swatter = new Enemy(950, randomY, board, mosquito, flySwatters)
+    randomY = Math.floor(Math.random() * 5) * 100
+    swatter = new Enemy(1400, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
     swatter.createFlySwatter() 
   }
@@ -72,4 +79,15 @@ btnIniciarJuego.addEventListener('click', function(){
     document.getElementById('intro').style.display = 'none';
     seccionJuego.style.display = 'block';
 })
+
+buzz.addEventListener('canplaythrough', function(e){
+    btnSound.addEventListener('click', function(){
+        if (isPlaying) {
+            buzz.pause()
+        }else {
+            buzz.play()
+        }
+        isPlaying = !isPlaying;
+    });
+});
 

@@ -8,7 +8,7 @@ body, html {
 /* CSS PARA EL MAIN MENU */
 
 #intro{
-    background-image:url("44780.jpg"); 
+    background-image:url("./multimedia/44780.jpg"); 
     background-size: cover  ;
     height: 100vh;
     position: relative;
@@ -63,7 +63,7 @@ body, html {
       }
   }
 
-  .firefly:nth-child(1) {
+.firefly:nth-child(1) {
     top: 50px;
     left: 100px;
 }
@@ -82,8 +82,6 @@ body, html {
   left: 1100px;
 }
 
-
-
 #startButton{
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -100,14 +98,14 @@ body, html {
     margin-top: 25vh;
   }
   #startButton:hover {
-    background-color: #ff4081; 
+    background-color:rgb(231, 18, 89); 
   }
   h2 {
     font-weight: bold;
     align-items: center;
     font-family: 'Nosifer', cursive; 
     font-size: 90px;
-    color: #fff;
+    color:white;
     margin-top: 10vh;
     margin-left: 27vw;
     animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
@@ -139,51 +137,48 @@ body, html {
     cursor: pointer;
   }
    
-  #audioButton:hover{
+#audioButton:hover{
     background-color: #f20b44;
   }
+/* CSS para la PANTALLA DE JUEGO */
 
 #board {
-    background-image: url("vecteezy_river-forest-game-background_7357538.jpg");
-    background-size: 100% 100%;
+    background-image: url("./multimedia/Forest.jpg");
+    background-size:contain;
     width: 1500px;
     height: 500px;
     margin: auto;
     margin-top: 350px;
     position: relative;
-    animation: backgroundScroll 5s linear infinite;;
+    animation: backgroundScroll 7s linear infinite;
+    overflow: hidden;
     
 }
 @keyframes backgroundScroll {
-  
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+    background-position: 0px 0; 
+  }
+  100% {
+    background-position: -2000px 0; 
+  }
 }
 
 .mosquito {
-  background-image: url("mosquitillo.gif");
+  background-image: url("./multimedia/mosquitillo.gif");
   width: 50px;
   height: 50px;
   position: absolute;
   background-size: cover;
   background-color: #d8dfd600;
   color: rgb(159, 10, 233);
-  opacity: 1;
-
-
-
-
+    
 }
 
 .swatter {
-    background-image: url("./istockphoto-1318175760-612x612.png");
+    background-image: url("./multimedia/flyswater.png");
     background-size: 100% 100%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     
 }
@@ -194,5 +189,20 @@ body, html {
     width: 100px;
     height: 100px;
     position: absolute;
+}
+
+
+/*CSS para pantalla de GAME OVER */
+
+#gameover{
+  background-image: url("./multimedia/dead.jpg");
+  background-size: cover;
+  position: relative;
+  
+}
+.title{
+  font-family: "Latin Modern Roman";
+  font-style: oblique;
+  color:antiquewhite;
 }
 

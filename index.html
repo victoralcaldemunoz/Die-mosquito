@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Die Mosquito</title>
-    <link rel="icon" href="./png-clipart-mosquito-cartoon-animation-mosquito-child-painted-thumbnail (1).png">
+    <link rel="icon" href="./multimedia/png-clipart-mosquito-cartoon-animation-mosquito-child-painted-thumbnail (1).png">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" type="module" defer ></script>
+    <script src="./game-logic/script.js" type="module" defer ></script>
 </head>
 <body>
     <div id="container">
@@ -17,13 +17,15 @@
         <div class="firefly"></div>
         <h2>Bienvenido a Die Mosquito</h2>
         <button id="startButton">New Game</button>
-        <audio id="myAudio" src="mosquito.mp3" autoplay loop></audio>
         <button id="audioButton">Play Stop sound</button>
     </div>
 <section id="seccion-juego">
-    
     <main id="board"></main>   
 </section>
+<div id="gameover">
+    <h1 class= "title">GAME OVER</h1>
+    <button id="restartButton">Restart</button>
+  </div>
   
 </body>
 </html>
