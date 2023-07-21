@@ -30,11 +30,22 @@ function start() {
     enemyTimeId = setInterval(createEnemy, 3000)
     // guayarmina.createPrincess();
 }
+function gameOv(){
+    let gameOver = document.createElement("section"); 
+    gameOver.setAttribute("id", "gameover"); 
+    gameOver.innerHTML = `               
+    <h1 class= "title">GAME OVER</h1>
+    <button id="restartButton">Restart</button>
+    ` ;
+    parent.appendChild(gameOver);
+}
+
 
 function mosquitoMovement() {
     mosquito.move();
     if (mosquito.death === true){
-        alert('Mosquito is dead')
+        //alert('Mosquito is dead')
+         gameOv()
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
     }

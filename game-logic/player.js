@@ -21,11 +21,7 @@ function Player (x, y, parent){
     this.move = function(){
         let newX = self.x + self.speed * self.directionX
         let newY = self.y + self.speed * self.directionY
-<<<<<<< HEAD:player.js
         if (newX >= 0 && newX <= 950){
-=======
-        if (newX >= 0 && newX <= 1400){
->>>>>>> origin/Carlos:game-logic/player.js
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         }
