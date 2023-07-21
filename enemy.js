@@ -1,12 +1,12 @@
-function Enemy (x, y,parent ){
+function Enemy (x, y,parent,arr ){
     let self = this;
     this.x = x
     this.y = y
     this.directionX = 0;
     this.directionY = 0;
-    this.speed = 1;
+    this.speed = 0.5;
     this.sprite = document.createElement('div')
-
+    this.timerId = setInterval(this.move, 100)
 
     this.insertFlySwatter = function(){ 
         this.sprite.classList.add('swatter')
@@ -16,22 +16,23 @@ function Enemy (x, y,parent ){
     }
     this.move = function(){
         
-        let newX = self.x + self.speed * self.directionX
-        let newY = self.y + self.speed * self.directionY
-        if (newX >= 0 && newX <= 9500){
-            self.x = newX
-            self.sprite.style.left = self.x + 'px'
+        self.x += self.speed
+        self.sprite.style.top = self.x + 'px'
+
+        if(self.x >=900){
+            self.removeEnemy()
         }
-            if (newY >= 0 && newY <= 500){
-                self.y = newY
-                self.sprite.style.top = self.y + 'px'
-        }
-            if (self.x >= 900) { 
-            self.directionX = -1; 
-        } else if (newX <= 0){
-            self.x = 900;
-        }
+        
     };
+    this.removeEnemy = function(index){
+        if (this.x > 950) {
+          arr.shift() // El enemigo que ha llegado al borde inferior es el que más tiempo lleva en pantalla, por lo que es el primer elemento del array de enemigos. Lo quitamos con la función shift()
+        } else {
+          arr.splice(index, 1) // Si no ha llegado al borde inferior, eliminamos el elemento en el índice que hemos recibido desde la función 'checkCollision' de la bala que ha colisionado con este enemigo
+        }
+        parent.removeChild(this.sprite)
+        clearInterval(this.timerId)
+      }
     
     }
 export { Enemy }

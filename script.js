@@ -4,7 +4,7 @@ import { Enemy } from "./enemy.js";
 
 const board = document.getElementById('board');
 let mosquito = new Player(0, 200, board);
-
+let arrEnemy = []
 let playerMoveId;
 let enemyMoveId;
 
@@ -19,10 +19,14 @@ function playerMove() {
 }
 
 function createEnemy(){
-    let randomY = Math.floor(Math.random() * 5) * 100
-    let enemy = new Enemy(950, randomY, board);
-    enemy.insertFlySwatter()
     setInterval(enemy.move)
+
+    let randomY = Math.floor(Math.random() * 5) * 50
+    let enemy = new Enemy(950, randomY, board);
+    arrEnemy.push(enemy)
+    enemy.insertFlySwatter()
+    
+    
 }
 
 
@@ -54,7 +58,7 @@ window.addEventListener('keyup', function(e) {
 
 
 
-start()
+
 
 
 
