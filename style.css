@@ -207,9 +207,8 @@ body, html {
   justify-content: center;
   align-items: center;
 }
-.title {
-  font-weight: bold;
-  align-items: center;
+
+#restart {
   font-family: "Latin Modern Roman";
   font-style: oblique;
   font-size: 90px;
