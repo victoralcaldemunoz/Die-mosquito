@@ -14,6 +14,11 @@ function Enemy (x, y, parent, mosquito, enemies){
       this.sprite.style.top = this.y + 'px'
       parent.appendChild(this.sprite)
   }
+
+//   this.increaseSpeed = () => {
+//     this.speed += 8;
+// };
+
   this.move = function () {
       self.checkCollision()   
   
@@ -43,6 +48,6 @@ function Enemy (x, y, parent, mosquito, enemies){
   }
 
   this.timerId = setInterval(this.move, 150)
-
+  // this.speedId = setInterval(this.increaseSpeed, 100);
   }
 export { Enemy }
