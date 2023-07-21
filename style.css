@@ -33,7 +33,7 @@ body, html {
       }
       25% {
         transform: translateY(30px) translateX(50px);
-    }
+      }
       40% {
           transform: translateY(40px) translateX(60px);
       }
@@ -150,7 +150,7 @@ body, html {
     margin: auto;
     margin-top: 350px;
     position: relative;
-    animation: backgroundScroll 7s linear infinite;
+    animation: backgroundScroll 10s linear infinite;
     overflow: hidden;
     
 }
@@ -197,6 +197,8 @@ body, html {
   background-image: url("./multimedia/dead.jpg");
   background-size: cover;
   height: 100vh;
+  text-align: center;
+
 }
 
 .gameover-button-div {
@@ -204,6 +206,7 @@ body, html {
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
   height: 100vh; /* Para que el contenedor ocupe toda la altura de la ventana del navegador */
+
 }
 
 #restart {

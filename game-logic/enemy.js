@@ -36,6 +36,7 @@ function Enemy (x, y, parent, mosquito, enemies){
       parent.removeChild(this.sprite)
       clearInterval(this.timerId)
       }
+
   this.checkCollision = function(){
       if (this.x + this.width >= mosquito.x &&    
           this.x <= mosquito.x + mosquito.width &&
