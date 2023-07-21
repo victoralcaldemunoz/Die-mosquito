@@ -13,6 +13,7 @@ let gameStarted = true;
 function showGameoverScreen(){
     let gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
+    gameoverSection.innerHTML='GAMER OVER';
 
     let divContainerGameover = document.createElement('div')
     divContainerGameover.classList.add('gameover-button-div');
