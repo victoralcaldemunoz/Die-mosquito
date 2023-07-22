@@ -1,236 +1,236 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
 
 /* CSS PARA EL MAIN MENU */
 
 #intro{
-    background-image:url("./multimedia/44780.jpg"); 
-    background-size: cover  ;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-   }
+  background-image:url("./multimedia/44780.jpg"); 
+  background-size: cover  ;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+ }
 
-   .firefly {
-      width: 7px;
-      height: 7px;
-      background-color: rgba(150, 224, 241, 0.5); 
-      border-radius: 50%;
-      position: absolute;
-      animation: moveFirefly 3s infinite;
-  }
-  
-  @keyframes moveFirefly {
-      0%, 100% {
-          transform: translateY(10) translateX(30);
-      }
-      25% {
-        transform: translateY(30px) translateX(50px);
-      }
-      40% {
-          transform: translateY(40px) translateX(60px);
-      }
-      60% {
-        transform: translateY(60px) translateX(90px);
-      }
-      80% {
-        transform: translateY(120px) translateX(160px);
-      }
-      100%{
-        transform: translateY(190px) translateX(200px) ;
-      }
-      60%{
-        transform: translateY(170px) translateX(146px);
-      }
-      40%{
-        transform: translateY(120px) translateX(110px);
-      }
-      20%{
-        transform: translateY(78px) translateX(80px);
-      }
-      10%{
-        transform: translateY(30px) translateX(30px);
-      }
-      0%{
-        transform: translateY(6px) translateX(20px);
-      }
-  }
+ .firefly {
+    width: 7px;
+    height: 7px;
+    background-color: rgba(150, 224, 241, 0.5); 
+    border-radius: 50%;
+    position: absolute;
+    animation: moveFirefly 3s infinite;
+}
+
+@keyframes moveFirefly {
+    0%, 100% {
+        transform: translateY(10) translateX(30);
+    }
+    25% {
+      transform: translateY(30px) translateX(50px);
+    }
+    40% {
+        transform: translateY(40px) translateX(60px);
+    }
+    60% {
+      transform: translateY(60px) translateX(90px);
+    }
+    80% {
+      transform: translateY(120px) translateX(160px);
+    }
+    100%{
+      transform: translateY(190px) translateX(200px) ;
+    }
+    60%{
+      transform: translateY(170px) translateX(146px);
+    }
+    40%{
+      transform: translateY(120px) translateX(110px);
+    }
+    20%{
+      transform: translateY(78px) translateX(80px);
+    }
+    10%{
+      transform: translateY(30px) translateX(30px);
+    }
+    0%{
+      transform: translateY(6px) translateX(20px);
+    }
+}
 
 .firefly:nth-child(1) {
-    top: 50px;
-    left: 100px;
+  top: 50px;
+  left: 100px;
 }
 
 .firefly:nth-child(2) {
-    top: 150px;
-    left: 1400px;
+  top: 150px;
+  left: 1400px;
 }
 
 .firefly:nth-child(3) {
-    top: 500px;
-    left: 300px;
+  top: 500px;
+  left: 300px;
 }
 .firefly:nth-child(4) {
-  top: 900px;
-  left: 1100px;
+top: 900px;
+left: 1100px;
 }
 
 #startButton{
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    font-size: 40px;
-    background-color: #47e91e;
-    color: rgb(241, 233, 245);
-    border: none;
-    border-radius: 20px;
-    align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
-    margin-left: 45vw;
-    margin-top: 25vh;
-  }
-  #startButton:hover {
-    background-color:rgb(231, 18, 89); 
-  }
-  h2 {
-    font-weight: bold;
-    align-items: center;
-    font-family: 'Nosifer', cursive; 
-    font-size: 90px;
-    color:white;
-    margin-top: 10vh;
-    margin-left: 27vw;
-    animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
-  }
-  
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  background-color: #47e91e;
+  color: rgb(241, 233, 245);
+  border: none;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+  margin-left: 45vw;
+  margin-top: 25vh;
+}
+#startButton:hover {
+  background-color:rgb(231, 18, 89); 
+}
+h2 {
+  font-weight: bold;
+  align-items: center;
+  font-family: 'Nosifer', cursive; 
+  font-size: 90px;
+  color:white;
+  margin-top: 10vh;
+  margin-left: 27vw;
+  animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
+}
+
 @keyframes drop {
-    0%, 100% {
-        text-shadow: 0 5px 10px rgba(255, 0, 0, 0.7), 0 10px 20px rgba(255, 0, 0, 0.5);
-      }
-      50% {
-        text-shadow: 0 10px 15px rgba(255, 0, 0, 0.9), 0 15px 25px rgba(255, 0, 0, 0.7), 0 20px 30px rgba(255, 0, 0, 0.5);
-      }
+  0%, 100% {
+      text-shadow: 0 5px 10px rgba(255, 0, 0, 0.7), 0 10px 20px rgba(255, 0, 0, 0.5);
     }
-
-
-  #audioButton {
-    width: 60px;
-    height: 60px;
-    border-radius: 60%;
-    background-color: #0bf239; 
-    color: white;
-    top: 3vh; 
-    left: 1vw;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    cursor: pointer;
+    50% {
+      text-shadow: 0 10px 15px rgba(255, 0, 0, 0.9), 0 15px 25px rgba(255, 0, 0, 0.7), 0 20px 30px rgba(255, 0, 0, 0.5);
+    }
   }
-   
+
+
+#audioButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 60%;
+  background-color: #0bf239; 
+  color: white;
+  top: 3vh; 
+  left: 1vw;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  cursor: pointer;
+}
+ 
 #audioButton:hover{
-    background-color: #f20b44;
-  }
+  background-color: #f20b44;
+}
 
 
 /* CSS para la PANTALLA DE JUEGO */
 
 #board {
-    background-image: url("./multimedia/Forest.jpg");
-    background-size:contain;
-    width: 1500px;
-    height: 500px;
-    margin: auto;
-    margin-top: 350px;
-    position: relative;
-    animation: backgroundScroll 10s linear infinite;
-    overflow: hidden;
-    
+  background-image: url("./multimedia/Forest.jpg");
+  background-size:contain;
+  width: 1500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 350px;
+  position: relative;
+  animation: backgroundScroll 10s linear infinite;
+  overflow: hidden;
+  
 }
 @keyframes backgroundScroll {
-  0% {
-    background-position: 0px 0; 
-  }
-  100% {
-    background-position: -1500px 0; 
-  }
+0% {
+  background-position: 0px 0; 
+}
+100% {
+  background-position: -1500px 0; 
+}
 }
 
 .mosquito {
-  background-image: url("./multimedia/mosquitillo.gif");
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-size: cover;
-  background-color: #d8dfd600;
-  color: rgb(159, 10, 233);
+background-image: url("./multimedia/mosquitillo.gif");
+width: 50px;
+height: 50px;
+position: absolute;
+background-size: cover;
+background-color: #d8dfd600;
+color: rgb(159, 10, 233);
 
 }
 
 .swatter {
-    background-image: url("./multimedia/flyswater.png");
-    background-size: 100% 100%;
-    width: 100px;
-    height: 100px;
-    position: absolute;
+  background-image: url("./multimedia/flyswater.png");
+  background-size: 100% 100%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
 
 }
 
 .princess {
-    background-color: rgb(6, 153, 231);
-    background-size: 100% 100%;
-    width: 100px;
-    height: 100px;
-    position: absolute;
+  background-color: rgb(6, 153, 231);
+  background-size: 100% 100%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
 }
 
 /*CSS para pantalla de GAME OVER */
 
 #gameover {
-  background-image: url("./multimedia/dead.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2; 
+background-image: url("./multimedia/dead.jpg");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+margin: 0;
+padding: 0;
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 2; 
 }
 
 #restartButton {
-  font-family: "Latin Modern Roman";
-  font-style: oblique;
-  color: rgb(228, 201, 23);
-  font-size: 50px; 
-  padding: 10px;
-  background: none;
-  border: none;
-  position: absolute;
-  bottom: 20px; 
-  left: 50%; 
-  transform: translateX(-50%);
+font-family: "Latin Modern Roman";
+font-style: oblique;
+color: rgb(228, 201, 23);
+font-size: 50px; 
+padding: 10px;
+background: none;
+border: none;
+position: absolute;
+bottom: 20px; 
+left: 50%; 
+transform: translateX(-50%);
 }
 #gameover .dead {
-  font-family: "Latin Modern Roman";
-  font-style: oblique;
-  font-size: 100px;
-  color: rgb(151, 140, 125);
-  text-align: center;
-  position: absolute;
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+font-family: "Latin Modern Roman";
+font-style: oblique;
+font-size: 100px;
+color: rgb(151, 140, 125);
+text-align: center;
+position: absolute;
+top: 50%; 
+left: 50%; 
+transform: translate(-50%, -50%); 
 }
