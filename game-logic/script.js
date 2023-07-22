@@ -30,6 +30,8 @@ function showGameoverScreen(){
         start()
         gameoverSection.style.display = 'none'
         seccionJuego.style.display = 'block'
+        soundGame.currentTime = 0;
+        soundGame.play();
     })
 
     divContainerGameover.appendChild(restartButton);
@@ -58,6 +60,7 @@ function startGame() {
   soundGame.play(); 
   start(); 
 }
+
 btnIniciarJuego.addEventListener('click', function() {
   startGame();
 });
@@ -88,6 +91,8 @@ function mosquitoMovement() {
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
         showGameoverScreen();
+        soundGame.pause();
+        soundGame.currentTime = 0;
     }
 }
 
