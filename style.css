@@ -13,12 +13,9 @@ body, html {
     height: 100vh;
     position: relative;
     overflow: hidden;
-   
-    
-    
-    }
+   }
 
-    .firefly {
+   .firefly {
       width: 7px;
       height: 7px;
       background-color: rgba(150, 224, 241, 0.5); 
@@ -140,6 +137,8 @@ body, html {
 #audioButton:hover{
     background-color: #f20b44;
   }
+
+
 /* CSS para la PANTALLA DE JUEGO */
 
 #board {
@@ -159,7 +158,7 @@ body, html {
     background-position: 0px 0; 
   }
   100% {
-    background-position: -2000px 0; 
+    background-position: -1500px 0; 
   }
 }
 
@@ -195,28 +194,53 @@ body, html {
 
 /*CSS para pantalla de GAME OVER */
 
-#gameover{
+#gameover {
   background-image: url("./multimedia/dead.jpg");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
   height: 100vh;
-  text-align: center;
-
+  position:absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
+#gameover{
+  display: flex;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size:70px;
+  font-family: 'Nosifer', cursive;
+  color: #ff0000; 
+  text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.8);
+  
+}
 .gameover-button-div {
   display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  height: 100vh; /* Para que el contenedor ocupe toda la altura de la ventana del navegador */
-
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  position:relative;
 }
 
 #restart {
   font-family: "Latin Modern Roman";
   font-style: oblique;
-  color: rgb(214, 127, 13);
-  font-size: 40px; 
-  padding: 20px;
-  border-radius: 2px;
+  color: rgb(228, 201, 23);
+  font-size: 50px; 
+  padding: 40px;
+  background: none;
+  border: none;
+  ;
 }
+
+
 
