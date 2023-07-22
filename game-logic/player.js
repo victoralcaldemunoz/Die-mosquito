@@ -9,6 +9,8 @@ function Player (x, y, parent){
     this.directionY = 0;
     this.speed = 10;
     this.death = false;
+    this.isColliding = false;
+
     this.sprite = document.createElement('div');
  
     this.createMosquito = function(){
@@ -18,6 +20,11 @@ function Player (x, y, parent){
         this.sprite.style.top = this.y + 'px'
         parent.appendChild(this.sprite)
     }
+
+    this.setColliding = function(value) {
+        this.isColliding = value;
+    };
+
     this.move = function(){
         let newX = self.x + self.speed * self.directionX
         let newY = self.y + self.speed * self.directionY
