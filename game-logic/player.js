@@ -21,7 +21,7 @@ function Player (x, y, parent){
     this.move = function(){
         let newX = self.x + self.speed * self.directionX
         let newY = self.y + self.speed * self.directionY
-        if (newX >= 0 && newX <= 950){
+        if (newX >= 0 && newX <= 1400){
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         }

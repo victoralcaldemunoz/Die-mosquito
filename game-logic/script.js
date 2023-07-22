@@ -10,10 +10,7 @@ const seccionJuego = document.getElementById('seccion-juego');
 let gameStarted = true;
 
 
-// SONIDO
-let btnSound = document.getElementById('audioButton')
-let buzz = new Audio('multimedia/mosquito.mp3')
-let isPlaying = false;
+
 
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
@@ -32,7 +29,10 @@ function start() {
     enemyTimeId = setInterval(createEnemy, 3000)
     // guayarmina.createPrincess();
 }
-
+// SONIDO
+let btnSound = document.getElementById('audioButton')
+let buzz = new Audio('multimedia/mosquito.mp3')
+let isPlaying = false;
 
 // EVENTO PARA INICIAR EL BOARD DEL JUEGO
 btnIniciarJuego.addEventListener('click', function(){
@@ -40,6 +40,8 @@ btnIniciarJuego.addEventListener('click', function(){
     document.getElementById('intro').style.display = 'none';
     seccionJuego.style.display = 'block';
 });
+
+
 
 function createEnemy () {
     console.log("Creating enemy object.");
@@ -50,11 +52,11 @@ function createEnemy () {
   };
 
 function mosquitoMovement() {
+    console.log("mosquitomoving")
     mosquito.move();
     if (mosquito.death === gameStarted){
        // alert('Mosquito is dead')
-       //board.removeChild()
-        clearInterval(playerTimeId)
+        console.log(clearInterval(playerTimeId))
         clearInterval(enemyTimeId)
         showGameoverScreen();
     }
@@ -102,6 +104,8 @@ buzz.addEventListener('canplaythrough', function(e){
 
 // GAME OVER
 function showGameoverScreen(){
+    setInterval(enemyTimeId)
+    setInterval(playerTimeId)
     let gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
     gameoverSection.innerHTML=`GAMER OVER`
@@ -115,22 +119,19 @@ function showGameoverScreen(){
 
     // EVENTO PARA INICIAR EL BOARD DEL JUEGO
    restartButton.addEventListener('click', function(){
-    
-    document.getElementById('intro').style.display = 'block'; 
-   
-    
+    document.getElementById('seccion-juego').style.display = 'block';
+    start()
+ 
         
     });
 
     divContainerGameover.appendChild(restartButton);
-
-    gameoverSection.appendChild(divContainerGameover);
-
+    gameoverSection.appendChild(divContainerGameover)
     document.body.appendChild(gameoverSection);
-    
     gameoverSection.style.display = 'block';
     seccionJuego.style.display = 'none';
-
-    gameStarted = true;
+    gameStarted = false;
 
 }
+
+buzz.play();
