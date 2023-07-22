@@ -5,7 +5,7 @@ import { Enemy } from "./enemy.js";
 
 // TABLERO
 const board = document.getElementById('board');
-let btnIniciarJuego = document.getElementById('startButton');
+let btnIniciarJuego = document.getElementById("startButton");
 const seccionJuego = document.getElementById('seccion-juego');
 let gameStarted = true;
 
@@ -74,6 +74,10 @@ function resetGame() {
 }
 
 
+// SONIDO
+let btnSound = document.getElementById('audioButton')
+let buzz = new Audio('multimedia/mosquito.mp3')
+let isPlaying = false;
 
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
@@ -92,23 +96,12 @@ function start() {
     enemyTimeId = setInterval(createEnemy, 3000)
     // guayarmina.createPrincess();
 }
-// SONIDO
-let btnSound = document.getElementById('audioButton')
-let buzz = new Audio('multimedia/mosquito.mp3')
-let isPlaying = false;
-
-// EVENTO PARA INICIAR EL BOARD DEL JUEGO
-btnIniciarJuego.addEventListener('click', function(){
-    start();
-    document.getElementById('intro').style.display = 'none';
-    seccionJuego.style.display = 'block';
-});
-
 
 function mosquitoMovement() {
     mosquito.move();
-    if (mosquito.death === gameStarted){
-        alert('Mosquito is dead')
+    if (mosquito.death && gameStarted){
+        mosquito.setColliding(false);
+        //alert('Mosquito is dead')
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
         showGameoverScreen();
@@ -121,29 +114,7 @@ function createEnemy () {
     swatter = new Enemy(1400, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
     swatter.createFlySwatter() 
-  };
-
-function mosquitoMovement() {
-    console.log("mosquitomoving")
-    mosquito.move();
-    if (mosquito.death === gameStarted){
-       // alert('Mosquito is dead')
-        console.log(clearInterval(playerTimeId))
-        clearInterval(enemyTimeId)
-        showGameoverScreen();
-    }
-};
-
-// EVENTO PARA MOVER A MOSQUITO
-
-window.addEventListener('keyup', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        mosquito.directionX = 0;
-    }
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-        mosquito.directionY = 0;
-    }
-});
+  }
 
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
@@ -161,6 +132,7 @@ window.addEventListener('keydown', function(e) {
             break;
     }
 });
+
 
 // EVENTO PARA MOVER A MOSQUITO
 
@@ -193,36 +165,4 @@ buzz.addEventListener('canplaythrough', function(e){
     });
 });
 
-// GAME OVER
-function showGameoverScreen(){
-    setInterval(enemyTimeId)
-    setInterval(playerTimeId)
-    let gameoverSection = document.createElement('section');
-    gameoverSection.setAttribute('id', 'gameover');
-    gameoverSection.innerHTML=`GAMER OVER`
-
-    let divContainerGameover = document.createElement('div')
-    divContainerGameover.classList.add('gameover-button-div');
-
-    let restartButton = document.createElement('button')
-    restartButton.setAttribute('id', 'restart')
-    restartButton.textContent = 'Restart'
-
-    // EVENTO PARA INICIAR EL BOARD DEL JUEGO
-   restartButton.addEventListener('click', function(){
-    document.getElementById('seccion-juego').style.display = 'block';
-    start()
- 
-        
-    });
-
-    divContainerGameover.appendChild(restartButton);
-    gameoverSection.appendChild(divContainerGameover)
-    document.body.appendChild(gameoverSection);
-    gameoverSection.style.display = 'block';
-    seccionJuego.style.display = 'none';
-    gameStarted = false;
-
-}
-
-buzz.play();
+buzz.play()
