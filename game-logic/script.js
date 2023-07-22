@@ -10,8 +10,11 @@ const seccionJuego = document.getElementById('seccion-juego');
 let gameStarted = true;
 
 // GAME OVER
+
+let gameoverSection;
+
 function showGameoverScreen(){
-    let gameoverSection = document.createElement('section');
+    gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
 
     let divContainerGameover = document.createElement('div')
@@ -21,11 +24,25 @@ function showGameoverScreen(){
     restartButton.setAttribute('id', 'restart')
     restartButton.textContent = 'Restart'
 
-    restartButton.addEventListener('click', function(){
-        start()
-        gameoverSection.style.display = 'none'
-        seccionJuego.style.display = 'block'
-    })
+    // Eliminar el evento anterior antes de añadir uno nuevo
+    restartButton.removeEventListener('click', restartGame);
+
+    function restartGame() {
+        // Eliminar el evento de colisión
+        for (let i = 0; i < flySwatters.length; i++) {
+            clearInterval(flySwatters[i].timerId);
+        }
+        flySwatters = [];
+    
+        gameoverSection.style.display = 'none';
+        seccionJuego.style.display = 'block';
+        clearInterval(playerTimeId);
+        clearInterval(enemyTimeId);
+        gameStarted = true;
+        start();
+    }
+
+    restartButton.addEventListener('click', restartGame);
 
     divContainerGameover.appendChild(restartButton);
 
@@ -35,9 +52,10 @@ function showGameoverScreen(){
     
     gameoverSection.style.display = 'block';
     seccionJuego.style.display = 'none';
-
-    gameStarted = false;
 }
+
+
+
 
 // SONIDO
 let btnSound = document.getElementById('audioButton')
@@ -64,7 +82,7 @@ function start() {
 
 function mosquitoMovement() {
     mosquito.move();
-    if (mosquito.death === gameStarted){
+    if (mosquito.death && gameStarted){
         alert('Mosquito is dead')
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
