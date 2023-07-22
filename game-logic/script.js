@@ -6,6 +6,10 @@ import { Enemy } from "./enemy.js";
 // TABLERO
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton");
+startButton.addEventListener('click', function() {
+    const seccionJuego = document.getElementById('seccion-juego');
+    let gameStarted = true;
+});
 const seccionJuego = document.getElementById('seccion-juego');
 let gameStarted = true;
 
@@ -16,7 +20,7 @@ let gameoverSection;
 function showGameoverScreen() {
     gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
-    gameoverSection.innerHTML = 'GAME OVER';
+   
 
     let divContainerGameover = document.createElement('div');
     divContainerGameover.classList.add('gameover-button-div');
@@ -79,6 +83,20 @@ let btnSound = document.getElementById('audioButton')
 let buzz = new Audio('multimedia/mosquito.mp3')
 let isPlaying = false;
 
+//SONIDO DEL JUEGO
+let soundGame = new Audio('multimedia/OST.mp3');
+soundGame.addEventListener("canplaythrough", (event) => {  
+});
+
+function startGame() {
+  soundGame.play(); 
+  start(); 
+}
+btnIniciarJuego.addEventListener('click', function() {
+  startGame();
+});
+
+//PRINCESS
 let mosquito = new Player(0, 200, board);
 /* let guayarmina = new Princess(1000, 400, board);
 let princessId; */
