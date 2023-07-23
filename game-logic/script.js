@@ -36,7 +36,15 @@ function showGameoverScreen() {
         resetGame(); // Reiniciar el juego
         gameoverSection.style.display = 'none';
         seccionJuego.style.display = 'block';
+        
     }
+    restartButton.addEventListener('click', function(){
+        start()
+        gameoverSection.style.display = 'none'
+        seccionJuego.style.display = 'block'
+        soundGame.currentTime = 0;
+        soundGame.play();
+    })
 
     restartButton.addEventListener('click', restartGame);
 
@@ -85,13 +93,13 @@ let isPlaying = false;
 
 //SONIDO DEL JUEGO
 let soundGame = new Audio('multimedia/OST.mp3');
-soundGame.addEventListener("canplaythrough", (event) => {  
-});
+//soundGame.addEventListener("canplaythrough", function(event){});
 
 function startGame() {
   soundGame.play(); 
   start(); 
 }
+
 btnIniciarJuego.addEventListener('click', function() {
   startGame();
 });
@@ -123,7 +131,7 @@ function mosquitoMovement() {
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
         showGameoverScreen();
-    }
+        }
 }
 
 function createEnemy () {
