@@ -14,17 +14,29 @@ const seccionJuego = document.getElementById('seccion-juego');
 let gameStarted = true;
 
 // GAME OVER
-function showGameoverScreen(){
-    let gameoverSection = document.createElement('section');
-    gameoverSection.setAttribute('id', 'gameover');
-   
 
-    let divContainerGameover = document.createElement('div')
+let gameoverSection;
+
+function showGameoverScreen() {
+    gameoverSection = document.createElement('section');
+    gameoverSection.setAttribute('id', 'gameover');
+    gameoverSection.innerHTML = 'GAME OVER';
+
+    let divContainerGameover = document.createElement('div');
     divContainerGameover.classList.add('gameover-button-div');
 
-    let restartButton = document.createElement('button')
-    restartButton.setAttribute('id', 'restart')
-    restartButton.textContent = 'Restart'
+    let restartButton = document.createElement('button');
+    restartButton.setAttribute('id', 'restart');
+    restartButton.textContent = 'Restart';
+
+    // Eliminar el evento anterior antes de añadir uno nuevo
+    restartButton.removeEventListener('click', restartGame);
+
+    function restartGame() {
+        resetGame(); // Reiniciar el juego
+        gameoverSection.style.display = 'none';
+        seccionJuego.style.display = 'block';
+    }
 
     restartButton.addEventListener('click', function(){
         start()
@@ -39,12 +51,38 @@ function showGameoverScreen(){
     gameoverSection.appendChild(divContainerGameover);
 
     document.body.appendChild(gameoverSection);
-    
+
     gameoverSection.style.display = 'block';
     seccionJuego.style.display = 'none';
-
-    gameStarted = false;
 }
+
+// Función para reiniciar el juego
+function resetGame() {
+    // Detener los intervalos de tiempo
+    clearInterval(playerTimeId);
+    clearInterval(enemyTimeId);
+
+    // Eliminar los enemigos del tablero
+    for (let i = 0; i < flySwatters.length; i++) {
+        flySwatters[i].removeEnemyRestart();
+    }
+    flySwatters = [];
+
+    // Restablecer la posición del mosquito
+    mosquito.x = 0;
+    mosquito.y = 200;
+    mosquito.sprite.style.left = mosquito.x + 'px';
+    mosquito.sprite.style.top = mosquito.y + 'px';
+
+    // Restablecer las variables del juego
+    gameStarted = true;
+    mosquito.death = false;
+    mosquito.setColliding(false);
+
+    // Volver a iniciar el juego
+    start();
+}
+
 
 // SONIDO
 let btnSound = document.getElementById('audioButton')
@@ -86,8 +124,9 @@ function start() {
 
 function mosquitoMovement() {
     mosquito.move();
-    if (mosquito.death === gameStarted){
-        alert('Mosquito is dead')
+    if (mosquito.death && gameStarted){
+        mosquito.setColliding(false);
+        //alert('Mosquito is dead')
         clearInterval(playerTimeId)
         clearInterval(enemyTimeId)
         showGameoverScreen();
@@ -120,6 +159,7 @@ window.addEventListener('keydown', function(e) {
             break;
     }
 });
+
 
 // EVENTO PARA MOVER A MOSQUITO
 
