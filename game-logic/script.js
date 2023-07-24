@@ -139,28 +139,9 @@ function startGame() {
   start(); 
 }
 
-btnIniciarJuego.addEventListener('click', function() {
-  startGame();
-});
+btnIniciarJuego.addEventListener('click', function() {startGame()});*/
 
-//PRINCESS
-let mosquito = new Player(0, 200, board);
-/* let guayarmina = new Princess(1000, 400, board);
-let princessId; */
-let flySwatters = [];
-let playerTimeId;
-let enemyTimeId;
 
-let randomY;
-let swatter;
-
-function start() {
-    console.log("Start function is running.")
-    mosquito.createMosquito()
-    playerTimeId = setInterval(mosquitoMovement, 50)
-    enemyTimeId = setInterval(createEnemy, 3000)
-    // guayarmina.createPrincess();
-}
 
 function mosquitoMovement() {
     mosquito.move();
@@ -180,6 +161,15 @@ function createEnemy () {
     swatter = new Enemy(1400, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
     swatter.createFlySwatter() 
+
+  }
+
+  function createFlower () {
+    console.log("Creating flower object.");
+    randomYFlower = Math.floor(Math.random() * 5) * 100
+    flower = new Flower(1400, randomYFlower, board, mosquito, flowers)
+    flowers.push(flower) 
+    flower.createFlower() 
   }
 
 // EVENTO PARA MOVER A MOSQUITO
@@ -228,5 +218,24 @@ buzz.addEventListener('canplaythrough', function(e){
         isPlaying = !isPlaying;
     });
 });
+
+
+//EVENTO BOTON START
+startButton.addEventListener('click', function() {
+    const seccionJuego = document.getElementById('seccion-juego');
+    let gameStarted = true;
+    soundGame.play()
+});
+
+/*CONDICION Y FUNCION PARA QUE SE MUEVAN MAS RAPIDO LOS SWATERS
+creamos un if donde ponga la condicion que cuando el primer matamosca 
+llege a mitad del tablero, aumente la velocidad el doble cada 10 seg CON UN SETTIMEOUT()*/
+
+const swattermoving = function(){
+    if (swatter.left > 50) {
+        console.log("mas de medio")
+    }
+}
+
 
 buzz.play()
