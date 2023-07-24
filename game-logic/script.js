@@ -7,7 +7,6 @@ const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton");
 const seccionJuego = document.getElementById('seccion-juego');
 
-
 // VARIABLES GLOBALES
 let mosquito = new Player(0, 200, board);
 
