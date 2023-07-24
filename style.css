@@ -191,7 +191,7 @@ color: rgb(159, 10, 233);
 }
 
 .flower {
-  background-color: rgb(7, 120, 212);
+  background-image: url("./multimedia/Antonia.gif");
   background-size: 100% 100%;
   width: 100px;
   height: 100px;
@@ -203,7 +203,7 @@ color: rgb(159, 10, 233);
 
 #gameover {
   /*CAMBIE LA IMAGEN DE GAMEOVER Y LA AJUSTE A LAS DEMAS*/
-background-image: url("./multimedia/gameOver.jpg");
+background-image: url("./multimedia/gameOverwithmosquitodie.jpg");
 background-size: cover;
 background-position: center;
 width: 1500px;
@@ -226,8 +226,8 @@ transform: translate(-50%, -50%);
   background-image: url("./multimedia/deadmosqui.png");
   background-size: cover;
   background-position: center;
-  width: 5vw;
-  height: 10vh;
+  width: 10vw;
+  height: 13vh;
   overflow: hidden;
   position: absolute;
   top: 25vh;
@@ -245,5 +245,18 @@ border: none;
 position: absolute;
 bottom: 80px; 
 left: 45%; 
-
 }
+
+#score {
+  position: relative;
+  top: 200px;
+  left: 900px;
+  font-size: 30px;
+  background-color: #78d327;
+  color:#fff;
+  padding: 5px 20px;
+  border: 3px solid #fff;
+  font-family: Arial, sans-serif;
+  border-radius: 40%; 
+  }
+

@@ -6,6 +6,8 @@ import { Flower } from "./flower.js";
 const board = document.getElementById('board');
 let btnIniciarJuego = document.getElementById("startButton");
 const seccionJuego = document.getElementById('seccion-juego');
+let score = document.getElementById('score');
+
 
 // VARIABLES GLOBALES
 let mosquito = new Player(0, 200, board);
@@ -27,13 +29,15 @@ let gameStarted = true;
 let gameoverSection;
 let gameoverSwatter;
 
+var scoreNumber = 0;
+
 // EMPEZAR EL JUEGO
 function start() {
     console.log("Start function is running.")
     mosquito.createMosquito()
     playerTimeId = setInterval(mosquitoMovement, 50)
     enemyTimeId = setInterval(createEnemy, 3000)
-    flowerTimeId = setInterval(createFlower, 5000)
+    flowerTimeId = setInterval(createFlowers, 5000)
 }
 
 // GAME OVER
@@ -100,7 +104,7 @@ function resetGame() {
 
     // Eliminar las flores del tablero
     for (let i = 0; i < flowers.length; i++){
-        flowers[i].removeFlowerRestart();
+        flowers[i].removeFlower();
     }
     flowers = [];
 
@@ -114,6 +118,11 @@ function resetGame() {
     gameStarted = true;
     mosquito.death = false;
     mosquito.setColliding(false);
+
+    // Restablecer las flores
+    scoreNumber = 0;
+    score.innerText = 0;
+    clearInterval(flower.timerId)
 
     // Volver a iniciar el juego
     start();
@@ -141,6 +150,14 @@ function mosquitoMovement() {
         soundGameOver.play();
         showGameoverScreen();
         }
+        flowers.forEach(function(flower, index){
+            if (flower.checkCollisionFlower()){
+                flower.removeFlower(index)
+                
+                scoreNumber += 10;
+                score.innerText = `${scoreNumber}`
+            }
+        })
 }
 
 function createEnemy () {
@@ -152,8 +169,8 @@ function createEnemy () {
 
   }
 
-  function createFlower () {
-    console.log("Creating flower object.");
+  function createFlowers () {
+    console.log(scoreNumber);
     randomYFlower = Math.floor(Math.random() * 5) * 100
     flower = new Flower(1400, randomYFlower, board, mosquito, flowers)
     flowers.push(flower) 

@@ -1,4 +1,4 @@
-function Flower(x, y, parent, mosquito) {
+function Flower(x, y, parent, mosquito, flowerArray) {
     let self = this;
     this.x = x;
     this.y = y;
@@ -6,14 +6,8 @@ function Flower(x, y, parent, mosquito) {
     this.height = 50; 
     this.health = 100; 
     this.speed = 30;
-    this.scoreNumber = 0;
-    this.score = document.getElementById('score');
+    this.score = document.getElementById('score')
     this.sprite = document.createElement('div');
-
-    this.addScore = function() {
-        this.scoreNumber += 10;
-        this.score.innerText = `${this.scoreNumber}`;
-    }
 
     this.createFlower = function(){
         this.sprite.classList.add('flower');
@@ -39,19 +33,17 @@ function Flower(x, y, parent, mosquito) {
             this.y <= mosquito.y + mosquito.height)  
         {  
             console.log('take points');
-            self.addScore();
-            self.removeFlower();
+            console.log(this)
+            // self.addScore();
+            // self.removeFlower();
+            return true
         }
     }
 
-    this.removeFlower = function() {
+    this.removeFlower = function(index) {
         parent.removeChild(this.sprite);
         clearInterval(this.timerId);
-    }
-
-    this.removeFlowerRestart = function() {
-        parent.removeChild(this.sprite);
-        clearInterval(this.timerId);
+        flowerArray.splice(index, 1)
     }
 
     this.timerId = setInterval(this.moveFlower, 150);
