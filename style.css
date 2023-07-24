@@ -3,6 +3,7 @@ body, html {
   padding: 0;
   height: 100%;
   overflow: hidden;
+
 }
 
 
@@ -12,8 +13,8 @@ body, html {
   background-image:url("./multimedia/44780.jpg"); 
   background-size: cover;
   background-position: center;
-  width: 1500px;
-  height: 500px;
+  width: 80vw;
+  height: 60vh;
   margin: 250px;
   position: relative;
   overflow: hidden;
@@ -110,8 +111,8 @@ h2 {
   font-size: 90px;
   color:white;
   margin-top: 10vh;
-  margin-left: 10vw;
-  animation: blink 0.3s infinite alternate, drop 0.2s infinite; 
+  margin-left: 15vw;
+  animation: blink 1s infinite alternate, drop 3s infinite; 
 }
 
 @keyframes drop {
@@ -149,30 +150,30 @@ h2 {
 
 #board {
   background-image: url("./multimedia/Forest.jpg");
-  background-size:contain;
-  width: 1500px;
-  height: 500px;
+  background-size:cover ;
+  width: 80vw;
+  height: 60vh;
   margin: 250px;
   position: relative;
-  animation: backgroundScroll 7s linear infinite; 
+  animation: backgroundScroll 50s linear infinite; 
   overflow: hidden;
-  transition-delay: 1s;
-
   
 }
 @keyframes backgroundScroll {
   0% {
     background-position: 0px 0; 
+    
   }
   100% {
-    background-position: -1500px 0; 
+    background-position: -10500px 0; 
+  
   }
   }
 
 .mosquito {
 background-image: url("./multimedia/mosquitillo.gif");
-width: 50px;
-height: 50px;
+width: 100px;
+height: 100px;
 position: absolute;
 background-size: cover;
 background-color: #d8dfd600;
@@ -220,19 +221,18 @@ transform: translate(-50%, -50%);
 
 }
 
-/*imagen de mosquito muerto en la pantalla game Over
+/*imagen de mosquito muerto en la pantalla game Over*/
 #dieSwatter{
   background-image: url("./multimedia/deadmosqui.png");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  display: block;
-  width: 500px;
-  height: 500px;
+  width: 5vw;
+  height: 10vh;
   overflow: hidden;
   position: absolute;
-  top: 0;
-  left: 0;
-}*/
+  top: 25vh;
+  left: 50vw;
+}
 
 #restart {
 font-family: "Latin Modern Roman";
@@ -243,7 +243,7 @@ padding: 10px;
 background: none;
 border: none;
 position: absolute;
-bottom: 100px; 
-left: 50%; 
-transform: translateX(-50%);
+bottom: 80px; 
+left: 45%; 
+
 }

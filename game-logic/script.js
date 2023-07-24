@@ -2,7 +2,6 @@ import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
 // import { Princess } from "./princess.js";
 
-
 function start() {
     console.log("Start function is running.")
     mosquito.createMosquito()
@@ -23,7 +22,6 @@ startButton.addEventListener('click', function() {
     soundGame.play()
 });
 
-
 //PRINCESS
 /* let guayarmina = new Princess(1000, 400, board);
 let princessId; */
@@ -32,7 +30,6 @@ let mosquito = new Player(0, 200, board);
 let flySwatters = [];
 let playerTimeId;
 let enemyTimeId;
-
 let randomY;
 let swatter;
 
@@ -43,14 +40,12 @@ let gameoverSwatter;
 function showGameoverScreen() {
     gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
-    gameoverSection.innerHTML='<br> GAMER-OVER <br>MOSQUITO IS DIE <br> '
+    gameoverSection.innerHTML='<br>GAMER-OVER<br>MOSQUITO DIED<br>'
     soundGame.pause()
 
     //2 SECCIÓN PARA PONER LA IMAGEN DEL MOSQUITO MUERTO EN GAME OVER
     gameoverSwatter = document.createElement('section');
-    gameoverSwatter.setAttribute('id', 'dieSwatter');
-    //gameoverSwatter.innerHTML='<br>MOSQUITO IS DIE <br> '
-    
+    gameoverSwatter.setAttribute('id', 'dieSwatter');   
 
     let divContainerGameover = document.createElement('div');
     divContainerGameover.classList.add('gameover-button-div');
@@ -70,6 +65,7 @@ function showGameoverScreen() {
     restartButton.addEventListener('click', function(){
         start()
         gameoverSection.style.display = 'none'
+        gameoverSwatter.style.display= 'none';
         seccionJuego.style.display = 'block'
         soundGame.currentTime = 0
         soundGame.play()
@@ -78,12 +74,14 @@ function showGameoverScreen() {
     restartButton.addEventListener('click', restartGame);
 
     divContainerGameover.appendChild(restartButton);
-
     gameoverSection.appendChild(divContainerGameover);
+    gameoverSwatter.appendChild(gameoverSection);
 
     document.body.appendChild(gameoverSection);
+    document.body.appendChild(gameoverSwatter);
 
     gameoverSection.style.display = 'block';
+    gameoverSwatter.style.display= 'block';
     seccionJuego.style.display = 'none';
 }
 
@@ -114,27 +112,17 @@ function resetGame() {
     start();
 }
 
-
-// SONIDO
+// SONIDOSS
 let btnSound = document.getElementById('audioButton')
 let buzz = new Audio('multimedia/mosquito.mp3')
 let isPlaying = false;
 
 //SONIDO DEL JUEGO
 let soundGame = new Audio('multimedia/OST.mp3');
-//NO HACE FALTA !! soundGame.addEventListener("canplaythrough", function(event){});
+soundGame.volume = 0.30
 
 //SONIDO GAME OVER
 let soundGameOver = new Audio('multimedia/ended.mp3');
-
-/*NO HARA FALTA??
-
-function startGame() {
-  soundGame.play(); 
-  start(); 
-}
-
-btnIniciarJuego.addEventListener('click', function() {startGame()});*/
 
 function mosquitoMovement() {
     mosquito.move();
@@ -151,7 +139,7 @@ function mosquitoMovement() {
 function createEnemy () {
     console.log("Creating enemy object.");
     randomY = Math.floor(Math.random() * 5) * 100
-    swatter = new Enemy(1400, randomY, board, mosquito, flySwatters)
+    swatter = new Enemy(1500, randomY, board, mosquito, flySwatters)
     flySwatters.push(swatter) 
     swatter.createFlySwatter() 
 
@@ -175,7 +163,7 @@ window.addEventListener('keydown', function(e) {
 });
 
 
-// EVENTO PARA MOVER A MOSQUITO
+/* EVENTO PARA MOVER A MOSQUITO
 
 window.addEventListener('keyup', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
@@ -184,7 +172,7 @@ window.addEventListener('keyup', function(e) {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         mosquito.directionY = 0;
     }
-});
+});*/
 
 // EVENTO PARA INICIAR EL BOARD DEL JUEGO
 btnIniciarJuego.addEventListener('click', function(){
@@ -209,7 +197,8 @@ buzz.addEventListener('canplaythrough', function(e){
 
 /*CONDICION Y FUNCION PARA QUE SE MUEVAN MAS RAPIDO LOS SWATERS
 creamos un if donde ponga la condicion que cuando el primer matamosca 
-llege a mitad del tablero, aumente la velocidad el doble cada 10 seg CON UN SETTIMEOUT()*/
+llege a mitad del tablero, aumente la velocidad el doble cada 10 seg CON UN SETTIMEOUT()
+parar intervalo de cada setInterval y volver a iniciarlo*/
 
 const swattermoving = function(){
     if (swatter.left > 50) {
