@@ -1,45 +1,43 @@
 import { Player } from "./player.js";
 import { Enemy } from "./enemy.js";
-// import { Princess } from "./princess.js";
+import { Flower } from "./flower.js";
+
+// VARIABLES DEL DOM
+const board = document.getElementById('board');
+let btnIniciarJuego = document.getElementById("startButton");
+const seccionJuego = document.getElementById('seccion-juego');
 
 
+// VARIABLES GLOBALES
+let mosquito = new Player(0, 200, board);
+
+let flySwatters = [];
+let flowers = [];
+
+let playerTimeId;
+let enemyTimeId;
+let flowerTimeId;
+
+let randomY;
+let randomYFlower;
+let swatter;
+let flower;
+
+let gameStarted = true;
+
+let gameoverSection;
+let gameoverSwatter;
+
+// EMPEZAR EL JUEGO
 function start() {
     console.log("Start function is running.")
     mosquito.createMosquito()
     playerTimeId = setInterval(mosquitoMovement, 50)
     enemyTimeId = setInterval(createEnemy, 3000)
-    // guayarmina.createPrincess();
+    flowerTimeId = setInterval(createFlower, 5000)
 }
-const seccionJuego = document.getElementById('seccion-juego');
-let gameStarted = true;
-
-//TABLERO
-const board = document.getElementById('board');
-let btnIniciarJuego = document.getElementById("startButton");
-//BOTON START
-startButton.addEventListener('click', function() {
-    const seccionJuego = document.getElementById('seccion-juego');
-    let gameStarted = true;
-    soundGame.play()
-});
-
-
-//PRINCESS
-/* let guayarmina = new Princess(1000, 400, board);
-let princessId; */
-
-let mosquito = new Player(0, 200, board);
-let flySwatters = [];
-let playerTimeId;
-let enemyTimeId;
-
-let randomY;
-let swatter;
 
 // GAME OVER
-let gameoverSection;
-let gameoverSwatter;
-
 function showGameoverScreen() {
     gameoverSection = document.createElement('section');
     gameoverSection.setAttribute('id', 'gameover');
@@ -92,12 +90,19 @@ function resetGame() {
     // Detener los intervalos de tiempo
     clearInterval(playerTimeId);
     clearInterval(enemyTimeId);
+    clearInterval(flowerTimeId);
 
     // Eliminar los enemigos del tablero
     for (let i = 0; i < flySwatters.length; i++) {
         flySwatters[i].removeEnemyRestart();
     }
     flySwatters = [];
+
+    // Eliminar las flores del tablero
+    for (let i = 0; i < flowers.length; i++){
+        flowers[i].removeFlowerRestart();
+    }
+    flowers = [];
 
     // Restablecer la posición del mosquito
     mosquito.x = 0;
@@ -121,7 +126,7 @@ let buzz = new Audio('multimedia/mosquito.mp3')
 let isPlaying = false;
 
 //SONIDO DEL JUEGO
-let soundGame = new Audio('multimedia/OST.mp3');
+// let soundGame = new Audio('multimedia/OST.mp3');
 //NO HACE FALTA !! soundGame.addEventListener("canplaythrough", function(event){});
 
 //SONIDO GAME OVER
@@ -135,6 +140,8 @@ function startGame() {
 }
 
 btnIniciarJuego.addEventListener('click', function() {startGame()});*/
+
+
 
 function mosquitoMovement() {
     mosquito.move();
@@ -157,6 +164,15 @@ function createEnemy () {
 
   }
 
+  function createFlower () {
+    console.log("Creating flower object.");
+    randomYFlower = Math.floor(Math.random() * 5) * 100
+    flower = new Flower(1400, randomYFlower, board, mosquito, flowers)
+    flowers.push(flower) 
+    flower.createFlower() 
+  }
+
+// EVENTO PARA MOVER A MOSQUITO
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
         case 'ArrowRight':
@@ -174,17 +190,14 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
-
-// EVENTO PARA MOVER A MOSQUITO
-
-window.addEventListener('keyup', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        mosquito.directionX = 0;
-    }
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-        mosquito.directionY = 0;
-    }
-});
+// window.addEventListener('keyup', function(e) {
+//     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+//         mosquito.directionX = 0;
+//     }
+//     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+//         mosquito.directionY = 0;
+//     }
+// });
 
 // EVENTO PARA INICIAR EL BOARD DEL JUEGO
 btnIniciarJuego.addEventListener('click', function(){
@@ -207,6 +220,13 @@ buzz.addEventListener('canplaythrough', function(e){
 });
 
 
+//EVENTO BOTON START
+startButton.addEventListener('click', function() {
+    const seccionJuego = document.getElementById('seccion-juego');
+    let gameStarted = true;
+    soundGame.play()
+});
+
 /*CONDICION Y FUNCION PARA QUE SE MUEVAN MAS RAPIDO LOS SWATERS
 creamos un if donde ponga la condicion que cuando el primer matamosca 
 llege a mitad del tablero, aumente la velocidad el doble cada 10 seg CON UN SETTIMEOUT()*/
@@ -216,9 +236,6 @@ const swattermoving = function(){
         console.log("mas de medio")
     }
 }
-
-
-
 
 
 buzz.play()
