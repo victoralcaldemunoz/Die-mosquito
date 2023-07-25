@@ -5,7 +5,7 @@ function Enemy (x, y, parent, mosquito, enemies){
   this.y = y;
   this.width = 50;
   this.height = 50;
-  this.speed = 8;
+  this.speed = 10;
   this.sprite = document.createElement('div')
 
   this.createFlySwatter = function(){
@@ -14,10 +14,6 @@ function Enemy (x, y, parent, mosquito, enemies){
       this.sprite.style.top = this.y + 'px'
       parent.appendChild(this.sprite)
   }
-
-//   this.increaseSpeed = () => {
-//     this.speed += 8;
-// };
 
   this.move = function () {
       self.checkCollision()   
@@ -53,6 +49,5 @@ function Enemy (x, y, parent, mosquito, enemies){
   }
 
   this.timerId = setInterval(this.move, 150)
-  // this.speedId = setInterval(this.increaseSpeed, 100);
   }
 export { Enemy }
