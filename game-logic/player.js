@@ -9,6 +9,7 @@ function Player (x, y, parent){
     this.directionY = 0;
     this.speed = 10;
     this.death = false;
+    this.win = false;
     this.isColliding = false;
 
     this.sprite = document.createElement('div');

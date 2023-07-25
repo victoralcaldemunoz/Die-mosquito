@@ -221,19 +221,6 @@ transform: translate(-50%, -50%);
 
 }
 
-/*imagen de mosquito muerto en la pantalla game Over*/
-#dieSwatter{
-  background-image: url("./multimedia/deadmosqui.png");
-  background-size: cover;
-  background-position: center;
-  width: 10vw;
-  height: 13vh;
-  overflow: hidden;
-  position: absolute;
-  top: 25vh;
-  left: 50vw;
-}
-
 #restart {
 font-family: "Latin Modern Roman";
 font-style: oblique;
@@ -247,10 +234,23 @@ bottom: 80px;
 left: 45%; 
 }
 
+#restartWin{
+  font-family: "Latin Modern Roman";
+font-style: oblique;
+color: rgb(77, 237, 9);
+font-size: 50px; 
+padding: 10px;
+background: none;
+border: none;
+position: absolute;
+bottom: 80px; 
+left: 45%;
+}
+
 #score {
   position: relative;
-  top: 200px;
-  left: 900px;
+  top: 240px;
+  left: 950px;
   font-size: 30px;
   background-color: #78d327;
   color:#fff;
@@ -260,3 +260,20 @@ left: 45%;
   border-radius: 40%; 
   }
 
+
+/* #win-image{
+  background-image: url('./multimedia/win.jpg');
+  background-size: cover;
+background-position: center;
+width: 1500px;
+height: 500px; 
+overflow: hidden;
+font-family: "Latin Modern Roman";
+font-style: oblique;
+font-size: 80px;
+text-align: center;
+position: relative;
+top: 50%; 
+left: 50%;
+transform: translate(-50%, -50%);
+} */

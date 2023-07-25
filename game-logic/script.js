@@ -8,7 +8,6 @@ let btnIniciarJuego = document.getElementById("startButton");
 const seccionJuego = document.getElementById('seccion-juego');
 let score = document.getElementById('score');
 
-
 // VARIABLES GLOBALES
 let mosquito = new Player(0, 200, board);
 
@@ -31,6 +30,29 @@ let gameoverSwatter;
 
 var scoreNumber = 0;
 
+const winSection = document.createElement('section');
+winSection.setAttribute('id', 'win-image');
+winSection.innerHTML = '<br>WIN<br>MOSQUITO WIN<br>';
+winSection.style.backgroundImage = "url('multimedia/mosquito-win.jpg')";
+winSection.style.backgroundSize = 'cover';
+winSection.style.backgroundPosition = 'center';
+winSection.style.width = '1500px';
+winSection.style.height = '500px';
+winSection.style.overflow = 'hidden';
+winSection.style.fontFamily = 'Latin Modern Roman';
+winSection.style.fontStyle = 'oblique';
+winSection.style.fontSize = '80px';
+winSection.style.textAlign = 'center';
+winSection.style.position = 'relative';
+winSection.style.top = '50%';
+winSection.style.left = '50%';
+winSection.style.transform = 'translate(-50%, -50%)';
+
+let restartButtonWin = document.createElement('button');
+restartButtonWin.setAttribute('id', 'restartWin');
+restartButtonWin.textContent = 'Restart';
+
+
 // EMPEZAR EL JUEGO
 function start() {
     console.log("Start function is running.")
@@ -47,13 +69,6 @@ function showGameoverScreen() {
     gameoverSection.innerHTML='<br>GAMER-OVER<br>MOSQUITO DIED<br>'
     soundGame.pause()
 
-    //2 SECCIÓN PARA PONER LA IMAGEN DEL MOSQUITO MUERTO EN GAME OVER
-    gameoverSwatter = document.createElement('section');
-    gameoverSwatter.setAttribute('id', 'dieSwatter');   
-
-    let divContainerGameover = document.createElement('div');
-    divContainerGameover.classList.add('gameover-button-div');
-
     let restartButton = document.createElement('button');
     restartButton.setAttribute('id', 'restart');
     restartButton.textContent = 'Restart';
@@ -64,6 +79,9 @@ function showGameoverScreen() {
         resetGame(); // Reiniciar el juego
         gameoverSection.style.display = 'none';
         seccionJuego.style.display = 'block';
+        score.style.display = 'inline';
+        soundGame.currentTime = 0;
+        soundGame.play();
         
     }
     restartButton.addEventListener('click', function(){
@@ -71,22 +89,18 @@ function showGameoverScreen() {
         gameoverSection.style.display = 'none'
         gameoverSwatter.style.display= 'none';
         seccionJuego.style.display = 'block'
+        score.style.display = 'inline'
         soundGame.currentTime = 0
         soundGame.play()
     })
 
     restartButton.addEventListener('click', restartGame);
-
-    divContainerGameover.appendChild(restartButton);
-    gameoverSection.appendChild(divContainerGameover);
-    gameoverSwatter.appendChild(gameoverSection);
-
+    gameoverSection.appendChild(restartButton);
     document.body.appendChild(gameoverSection);
-    document.body.appendChild(gameoverSwatter);
 
     gameoverSection.style.display = 'block';
-    gameoverSwatter.style.display= 'block';
     seccionJuego.style.display = 'none';
+    score.style.display = 'none'
 }
 
 // Función para reiniciar el juego
@@ -120,13 +134,84 @@ function resetGame() {
     mosquito.setColliding(false);
 
     // Restablecer las flores
+    clearInterval(flower.timerId)
+
+    // Restablecer el score
     scoreNumber = 0;
     score.innerText = 0;
-    clearInterval(flower.timerId)
 
     // Volver a iniciar el juego
     start();
 }
+
+function resetGameWithoutStart() {
+    // Detener los intervalos de tiempo
+    clearInterval(playerTimeId);
+    clearInterval(enemyTimeId);
+    clearInterval(flowerTimeId);
+
+    // Eliminar los enemigos del tablero
+    for (let i = 0; i < flySwatters.length; i++) {
+        flySwatters[i].removeEnemyRestart();
+    }
+    flySwatters = [];
+
+    // Eliminar las flores del tablero
+    for (let i = 0; i < flowers.length; i++){
+        flowers[i].removeFlower();
+    }
+    flowers = [];
+
+    // Restablecer la posición del mosquito
+    mosquito.x = 0;
+    mosquito.y = 200;
+    mosquito.sprite.style.left = mosquito.x + 'px';
+    mosquito.sprite.style.top = mosquito.y + 'px';
+
+    // Restablecer las variables del juego
+    gameStarted = true;
+    mosquito.death = false;
+    mosquito.setColliding(false);
+
+    // Restablecer las flores
+    clearInterval(flower.timerId)
+
+    // Restablecer el score
+    scoreNumber = 0;
+    score.innerText = 0;
+}
+
+// FUNCIÓN QUE CHEQUEA EL WIN DEL JUEGO
+function win(){
+    if (scoreNumber == 50){
+        mosquito.win = true;
+    }
+}
+
+function winBoard(){
+    console.log('win')
+    
+        soundGame.pause()
+    
+        document.body.appendChild(winSection);
+        winSection.appendChild(restartButtonWin);
+        winSection.style.display = 'block';
+
+        seccionJuego.style.display = 'none';
+        score.style.display = 'none'
+    
+        // Reiniciar el juego
+            
+        }
+        restartButtonWin.addEventListener('click', function(){
+            start()
+            winSection.style.display = 'none'
+            seccionJuego.style.display = 'block'
+            score.style.display = 'inline'
+            soundGame.currentTime = 0
+            soundGame.play()
+        })
+
 
 // SONIDOSS
 let btnSound = document.getElementById('audioButton')
@@ -150,6 +235,12 @@ function mosquitoMovement() {
         soundGameOver.play();
         showGameoverScreen();
         }
+    if (mosquito.win){
+        winBoard();
+        resetGameWithoutStart();
+        mosquito.win = !mosquito.win
+
+    }
         flowers.forEach(function(flower, index){
             if (flower.checkCollisionFlower()){
                 flower.removeFlower(index)
@@ -158,7 +249,8 @@ function mosquitoMovement() {
                 score.innerText = `${scoreNumber}`
             }
         })
-}
+        win()
+}    
 
 function createEnemy () {
     console.log("Creating enemy object.");
