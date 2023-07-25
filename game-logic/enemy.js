@@ -5,7 +5,7 @@ function Enemy (x, y, parent, mosquito, enemies){
   this.y = y;
   this.width = 50;
   this.height = 50;
-  this.speed = 10;
+  this.speed = 40;
   this.sprite = document.createElement('div')
 
   this.createFlySwatter = function(){

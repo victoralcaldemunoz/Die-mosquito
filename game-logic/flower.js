@@ -5,7 +5,7 @@ function Flower(x, y, parent, mosquito, flowerArray) {
     this.width = 50; 
     this.height = 50; 
     this.health = 100; 
-    this.speed = 30;
+    this.speed = 20;
     this.score = document.getElementById('score')
     this.sprite = document.createElement('div');
 
