@@ -8,6 +8,19 @@ let btnIniciarJuego = document.getElementById("startButton");
 const seccionJuego = document.getElementById('seccion-juego');
 let score = document.getElementById('score');
 
+const winSection = document.createElement('section');
+winSection.setAttribute('id', 'win-image');
+var mosquitoWin = document.createElement('div');
+mosquitoWin.setAttribute('id', 'mosquito-win');
+mosquitoWin.innerText = 'Mosquito Win'
+winSection.appendChild(mosquitoWin);
+
+
+
+let restartButtonWin = document.createElement('button');
+restartButtonWin.setAttribute('id', 'restartWin');
+restartButtonWin.textContent = 'Restart';
+
 // VARIABLES GLOBALES
 let mosquito = new Player(0, 200, board);
 
@@ -29,29 +42,6 @@ let gameoverSection;
 let gameoverSwatter;
 
 var scoreNumber = 0;
-
-const winSection = document.createElement('section');
-winSection.setAttribute('id', 'win-image');
-winSection.innerHTML = '<br>WIN<br>MOSQUITO WIN<br>';
-winSection.style.backgroundImage = "url('multimedia/mosquito-win.jpg')";
-winSection.style.backgroundSize = 'cover';
-winSection.style.backgroundPosition = 'center';
-winSection.style.width = '1500px';
-winSection.style.height = '500px';
-winSection.style.overflow = 'hidden';
-winSection.style.fontFamily = 'Latin Modern Roman';
-winSection.style.fontStyle = 'oblique';
-winSection.style.fontSize = '80px';
-winSection.style.textAlign = 'center';
-winSection.style.position = 'relative';
-winSection.style.top = '50%';
-winSection.style.left = '50%';
-winSection.style.transform = 'translate(-50%, -50%)';
-
-let restartButtonWin = document.createElement('button');
-restartButtonWin.setAttribute('id', 'restartWin');
-restartButtonWin.textContent = 'Restart';
-
 
 // EMPEZAR EL JUEGO
 function start() {
@@ -183,7 +173,7 @@ function resetGameWithoutStart() {
 
 // FUNCIÓN QUE CHEQUEA EL WIN DEL JUEGO
 function win(){
-    if (scoreNumber == 50){
+    if (scoreNumber == 100){
         mosquito.win = true;
     }
 }

@@ -228,10 +228,11 @@ color: rgb(228, 201, 23);
 font-size: 50px; 
 padding: 10px;
 background: none;
-border: none;
+border: solid, 5px, black;
 position: absolute;
 bottom: 80px; 
 left: 45%; 
+cursor: pointer
 }
 
 #restartWin{
@@ -241,10 +242,11 @@ color: rgb(77, 237, 9);
 font-size: 50px; 
 padding: 10px;
 background: none;
-border: none;
+border: solid, 5px, black;
 position: absolute;
 bottom: 80px; 
 left: 45%;
+cursor: pointer
 }
 
 #score {
@@ -260,20 +262,29 @@ left: 45%;
   border-radius: 40%; 
   }
 
+#win-image {
+  background-image : url('multimedia/mosquito-win.jpg');
+  background-size : cover;
+  background-position : center;
+  width : 1500px;
+  height : 500px;
+  border-top : 50px;
+  overflow : hidden;
+  position : relative;
+  top : 50%;
+  left : 50%;
+  transform : translate(-50%, -50%);
+  }
 
-/* #win-image{
-  background-image: url('./multimedia/win.jpg');
-  background-size: cover;
-background-position: center;
-width: 1500px;
-height: 500px; 
-overflow: hidden;
-font-family: "Latin Modern Roman";
-font-style: oblique;
-font-size: 80px;
-text-align: center;
-position: relative;
-top: 50%; 
-left: 50%;
-transform: translate(-50%, -50%);
-} */
+  #mosquito-win {
+    position: absolute;
+    font-family : Latin Modern Roman;
+    color : green;
+    font-style : oblique;
+    font-size : 80px;
+    text-align : center;
+    margin-top: 7%;
+    margin-left: 35%;
+  }
+
+
