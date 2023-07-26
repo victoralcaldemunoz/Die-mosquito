@@ -32,10 +32,6 @@ function Flower(x, y, parent, mosquito, flowerArray) {
             this.y + this.height >= mosquito.y &&   
             this.y <= mosquito.y + mosquito.height)  
         {  
-            console.log('take points');
-            console.log(this)
-            // self.addScore();
-            // self.removeFlower();
             return true
         }
     }

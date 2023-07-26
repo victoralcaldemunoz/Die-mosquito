@@ -1,5 +1,4 @@
 function Enemy (x, y, parent, mosquito, enemies){
-  console.log("Creating enemy object.");
   let self = this;
   this.x = x;
   this.y = y;
@@ -17,7 +16,6 @@ function Enemy (x, y, parent, mosquito, enemies){
 
   this.move = function () {
       self.checkCollision()   
-  
       self.x -= self.speed  
       self.sprite.style.left = self.x + 'px'
   
@@ -25,16 +23,10 @@ function Enemy (x, y, parent, mosquito, enemies){
         self.removeEnemy() 
       }
     }
-    this.removeEnemy = function(i){
-      if (this.x === 0) {
-        enemies.shift() 
-      }
-      parent.removeChild(this.sprite)
-      clearInterval(this.timerId)
-      }
-      this.removeEnemyRestart = function() {
+      this.removeEnemy = function(index) {
         parent.removeChild(this.sprite);
         clearInterval(this.timerId);
+        enemies.splice(index, 1)
     }
   this.checkCollision = function(){
       if (this.x + this.width >= mosquito.x &&    
@@ -42,12 +34,10 @@ function Enemy (x, y, parent, mosquito, enemies){
           this.y + this.height >= mosquito.y &&   
           this.y <= mosquito.y + mosquito.height)  
       {  
-          console.log('collision')
           mosquito.death = true;
           mosquito.setColliding(true);
       }
   }
-
   this.timerId = setInterval(this.move, 150)
   }
 export { Enemy }

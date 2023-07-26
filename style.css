@@ -3,7 +3,6 @@ body, html {
   padding: 0;
   height: 100%;
   overflow: hidden;
-
 }
 
 
@@ -139,6 +138,19 @@ h2 {
   }
 }
 
+#score {
+  position: relative;
+  top: 240px;
+  left: 950px;
+  font-size: 30px;
+  background-color: #78d327;
+  color:#fff;
+  padding: 5px 20px;
+  border: 3px solid #fff;
+  font-family: Arial, sans-serif;
+  border-radius: 40%; 
+  }
+
 .mosquito {
 background-image: url("./multimedia/mosquitillo.gif");
 width: 100px;
@@ -202,6 +214,8 @@ left: 45%;
 cursor: pointer
 }
 
+/*CSS para pantalla de WIN */
+
 #restartWin{
   font-family: "Latin Modern Roman";
 font-style: oblique;
@@ -215,19 +229,6 @@ bottom: 80px;
 left: 45%;
 cursor: pointer
 }
-
-#score {
-  position: relative;
-  top: 240px;
-  left: 950px;
-  font-size: 30px;
-  background-color: #78d327;
-  color:#fff;
-  padding: 5px 20px;
-  border: 3px solid #fff;
-  font-family: Arial, sans-serif;
-  border-radius: 40%; 
-  }
 
 #win-image {
   background-image : url('multimedia/mosquito-win.jpg');
@@ -252,19 +253,6 @@ cursor: pointer
     text-align : center;
     margin-top: 7%;
     margin-left: 35%;
-  }
-
-#score {
-  position: relative;
-  top: 240px;
-  left: 950px;
-  font-size: 30px;
-  background-color: #78d327;
-  color:#fff;
-  padding: 5px 20px;
-  border: 3px solid #fff;
-  font-family: Arial, sans-serif;
-  border-radius: 40%; 
   }
 
 #win-image {
