@@ -116,7 +116,7 @@ function mosquitoMovement() {
 
 // FUNCIÓN QUE CHEQUEA EL WIN DEL JUEGO
 function win() {
-    if (scoreNumber >= 10) {
+    if (scoreNumber >= 50) {
         mosquito.win = true;
     }
 }
